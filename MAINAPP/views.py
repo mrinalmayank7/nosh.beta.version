@@ -161,7 +161,7 @@ def contact(request):
 			return HttpResponseRedirect(reverse('contact'))
 		else:
 			messages.error(request,"Invalid Details")
-			return HttpResponseRedirect("contact")
+			return HttpResponseRedirect("/contact")
 	return render(request, 'MAINAPP/contact.html',{'feed_form':feed_form})
 
 
