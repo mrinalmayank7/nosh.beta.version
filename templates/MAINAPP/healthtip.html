@@ -1,0 +1,54 @@
+{%  extends 'MAINAPP/home.html' %}
+{% load static %}
+
+{% block content %}
+
+<div>
+<br><br><br><br><br>
+
+<div class="healthblogclass" >
+<div class="container">
+  <p style="font-size:18px;text-align:center;font-family:'Barlow Semi Condensed',sans-serif;margin-bottom:0px;letter-spacing: 5px;">WELCOME TO THE</p>
+  <p style="font-size:40px;text-align:center;font-family:'Barlow Semi Condensed',sans-serif;margin-top:0px;margin-bottom:0px;letter-spacing:10px;"><b>BLOG</b></p>
+  <p style="font-size:14px;text-align:center;color:black;margin:10px;font-family:'Rasa',sans-serif;">Discover insights on Diet, Health, Beauty, Nutrition, Ayurveda & More.</p>
+
+<hr style="margin:0px;"><br>
+
+  <div class="row">
+      {% for tip in tips %}
+
+    <div class="col-lg-3 col-md-4 col-sm-6 col-10" style="margin-top:0;margin-left:auto;margin-right:auto;display:flex;flex-wrap:wrap;">
+      <div class="flipcard">
+         <div class="flipcard-wrap">
+           <div class="card card-front">
+              <img src="{{ tip.imageURL }}" class="card-img-top imghealthtip">
+              <div class="card-body" style="padding:8px  10px 0px 10px;">
+                <p style="font-size:11px;color:grey;margin-bottom:1px;text-align:right">{{tip.posted_on}}</p>
+                <p style="font-size:16px;font-weight:600;margin-bottom:3px;">{{tip.name}}</p>
+                <p style="font-size:13px;color:grey;">{{tip.caption}}</p>
+
+              </div>
+            </div>
+            <div class="card card-back">
+              <div class="card-body">
+                <p style="font-size:11px;color:lightblue;margin-bottom:3px;text-align:right">By: {{tip.posted_by}}</p>
+                <p style="white-space: pre-wrap;font-size:13px;">{{tip.introduction}}</p>
+                {% if tip.description%}
+                <a  data-product="{{ tip.id }}" class="btn btn-outline-primary"
+                style="border-radius:50px;font-size:14px;"href="{% url 'read_more' tip.id %}">Read More</a>
+                {% else %}
+                <p> </p>
+                {% endif %}
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+  </div>
+</div>
+</div>
+
+</div>
+
+{% endblock content %}

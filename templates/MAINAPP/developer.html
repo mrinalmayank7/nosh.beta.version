@@ -1,0 +1,54 @@
+{%  extends 'MAINAPP/home.html' %}
+{% load static %}
+{% block content %}
+<div class="devpage" style="background-color:black;">
+  <div id="particles-js" style="position:absolute;"></div>
+  <br><br><br><br><br>
+<div class="col-lg-9 col-md-10 col-sm-12 col-12 container">
+  <p style="color:white;font-size:16px;font-family:'Barlow Semi Condensed', sans-serif;text-align:center;letter-spacing:8px;font-weight:300;">DEVELOPER</p>
+  <div class="row">
+    <div class="col-lg-6 col-md-10 col-sm-10 col-12" style="margin-left:auto;margin-right:auto;display:flex;flex-wrap:wrap;margin-bottom:20px;">
+      <div class="backdrop"style="padding:20px;background:rgba(9, 13, 16,0.5);width:100%;border-radius:10px;">
+      <div class="text-center">
+        <img src="{% static 'images/dev.jpg' %}" style="height:170px;border-radius:100px;border: 8px solid rgba(255,255,255,0.04)">
+        <p style="color:white;font-size:20px;font-weight:400;margin-top:10px;">Mrinal Mayank</p>
+        <div class="icons text-center">
+          <label ><a href="tel:7858832086"><i class="bi bi-telephone-fill"
+          style="margin:7px;font-size:18px;"></i></a></label>
+          <label ><a href="mailto:mrinalmayank7@gmail.com"><i class="bi bi-envelope"
+          style="margin:7px;font-size:20px;"></i></a></label>
+          <label ><a href="https://www.linkedin.com/in/mrinal-mayank-bb3112200/"><i class="bi bi-linkedin"
+          style="margin:7px;font-size:18px;"></i></a></label>
+          <label ><a href="https://github.com/mrinalmayank7/"><i class="bi bi-github"
+          style="margin:7px;font-size:20px;"></i></a></label>
+      </div>
+          <hr color="#1C2833" style="margin-top:5px;">
+        <p style="color:white;font-size:14px;font-weight:500;margin-top:5px;">B.E in Computer Science & Engineering </p>
+        <p style="color:#85929E;font-size:13px;margin:2px;">Chandigarh University, 2019-2023</p>
+          <p style="color:#85929E;font-size:13px;margin:2px;">University ID :19BCS1605 </p>
+        </div>
+
+    </div>
+    </div>
+    <div class="col-lg-6 col-md-10 col-sm-10 col-12" style="margin-left:auto;margin-right:auto;margin-bottom:20px;display:flex;flex-wrap:wrap;">
+      <div class="backdrop" style="padding:20px;border:1px solid #090d10">
+        <p style="color:white;font-size:22px;font-family:'Barlow Semi Condensed', sans-serif;text-align:center;letter-spacing:5px;">ABOUT</p>
+        <hr color="#1C2833">
+
+        <p style="color:#85929E;font-size:12px;">Mrinal Mayank is a student of Chandigarh University, Punjab pursuing Bachelor of Engineering in Computer Science and Engineering 2019 – 2023. He had completed his AISSCE from Delhi Public School,Ranchi, Jharkhand in the Year 2019. He is experienced in Full Stack Web Development , data Mining with relevant projects and research works . Holding a good command over programming languages , and working on real world problems . </p>
+        <p style="color:#85929E;font-size:12px;">The website is a full stack web development project developed by Mrinal Mayank as a part of summer training 2021. The website is developed with django framework  in the duration of 2 months (June 2021 – July 2021). The website is deployed  in the month of July with heroku free tier dyno & AWS S3(serving static files). This is a completely project based website / non-commercial website / non-profitable website.</p>
+        <br>
+        <p style="color:white;font-size:13px;font-family:'Barlow Semi Condensed', sans-serif;text-align:center;letter-spacing:5px;font-weight:200;">CONTACT DEVELOPER</p>
+          <hr color="#1C2833">
+        <p style="font-size:12px;color:#D0D3D4 ;margin:2px;">Call : 7858832086</p>
+        <p style="font-size:12px;color:#D0D3D4 ;margin:2px;">Email : mrinalmayank7@gmail.com</p>
+        <p style="font-size:12px;color:#D0D3D4 ;margin:2px;">Linkedin :  www.linkedin.com/in/mrinal-mayank-bb3112200</p>
+        <p style="font-size:12px;color:#D0D3D4 ;margin:2px;">Github :   https://github.com/mrinalmayank7</p>
+      </div>
+    </div>
+
+  </div>
+  </div><br>
+</div>
+<hr color="#1C2833" style="margin:0px;">
+{% endblock content %}

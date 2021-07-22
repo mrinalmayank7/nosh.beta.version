@@ -1,0 +1,31 @@
+{%  extends 'MAINAPP/home.html' %}
+{% load static %}
+{% block content %}
+<div class="bground1">
+  <div class="backdrop">
+<br><br><br><br><br><br>
+{% for fnp in fnps %}
+  {% if forloop.counter < 2 %}
+<p style="text-align:center;margin-bottom:5px;"><img src="{% static 'images/logo1.png' %}"></p>
+<div class="container">
+  <div class="row">
+    <div class="grid2 col-lg-6  col-md-10 col-sm-11 col-11" style="margin-left:auto;margin-right:auto;background:#0B5345;">
+      <div class="innerdiv" style="margin-right:5%;margin-left:5%;">
+        <br>
+        <p style="font-family:'Playfair Display', serif;font-size:30px;text-align:center;color:white;">Thank You</p>
+          <p style="font-size:16px;color:#A2D9CE;text-align:center;font-weight:600;"><i class="fa fa-flip-horizontal fa-pagelines" aria-hidden="true"></i> {{fnp.workshop_name}} <i class="fa fa-pagelines" aria-hidden="true"></i></p>
+          <hr style="border: 0;height: 1px;background-image: linear-gradient(to right, rgba(255,255,255, 0), rgba(255,255,255, 0.75), rgba(255,255,255, 0));">
+
+        <p style="font-size:12px;color:white;text-align:center;">Your enrollment for the program "{{fnp.workshop_name}}" has been successfully submitted. We will contact you soon for the further process.</p>
+        <br>
+
+      </div>
+    </div>
+  </div>
+</div><br><br><br>
+{% endif %}
+{% endfor %}
+</div>
+  </div>
+
+{% endblock content %}

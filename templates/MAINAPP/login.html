@@ -1,0 +1,41 @@
+{%  extends 'MAINAPP/home.html' %}
+{% load static %}
+{% block content %}
+<div class="bground1" >
+<div class="coverblur backdrop">
+<div class="container">
+  <div class="row">
+    <div class="col-xl-4 col-lg-5 col-md-7 col-sm-9 col-10 signgrid">
+    <p style="text-align:center;font-weight:700;font-size:22px;">Log in</p>
+    <p style="font-size:14px;text-align:center"><b>Nosh</b> is your health expert. Connect with us to get customized diet plans & more.</p>
+    <hr size="3px" width="" color="">
+    {% if user.is_authenticated %}
+    <p style="text-align:center;color:green;font-size:13px">Already logged in.</p>
+    {% else %}
+    <form class="" action="{% url 'user_login' %}" method="POST">
+      {% csrf_token %}
+      <label for="username" style="font-size:14.3px;"><b>Username</b></label>
+      <input type="text" class="form-control"name="username" placeholder="Enter Username" style="background:rgba(0,0,0,0.1);border-width:0px;font-size:14px;">
+      <label for="password"style="font-size:14.3px;"><b>Password</b></label>
+      <input type="password" class="form-control"name="password" placeholder="Enter Password" id="myInput" style="background:rgba(0,0,0,0.1);border-width:0px;font-size:14px;">
+     <input type="checkbox"  onclick="myFunction()">
+     <label for="myInput"><small class="form-text text-muted">Show Password</small></label>
+
+     {% for message in messages %}
+     <p style="text-align:center;color:red;font-size:13px">{{message}}</p>
+     {% endfor %}
+      <div class="text-center">
+        <input type="submit" class="btn btn-primary text-center" value="LOG IN" style="border-radius:30px;font-size:14px;width:100%;margin:auto;font-weight:600">
+        <br><label style=""><small><a href="{%  url 'reset_password' %}"><b>Reset password</b></a></small></label>
+        <p style="font-size:14px;">Don't have an account?</p>
+        <a class="btn btn-outline-primary" href="{% url 'register' %}" style="font-weight:600;border-radius:80px;border-color:transparent;">Sign up</a>
+</div>
+</form>
+  {% endif  %}
+</div>
+</div>
+
+</div>
+</div>
+</div>
+{% endblock content %}

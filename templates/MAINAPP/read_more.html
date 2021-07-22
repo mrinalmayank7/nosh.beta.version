@@ -1,0 +1,85 @@
+{%  extends 'MAINAPP/home.html' %}
+{% load static %}
+
+{% block content %}
+<br><br><br><br><br><br>
+<div class=" readmoreclass container">
+  <div class="row">
+    <div class="blog_description col-lg-9 col-md-8 col-sm-11 col-11" style="padding:20px;margin:auto;margin-top:0px;margin-bottom:20px;">
+      <div class="row">
+      <div class="col-lg-4 col-md-4 col-sm-5 col-11" style="margin:auto;margin-bottom:10px;margin-top:0px;">
+        <img src="{{ tips.imageURL }}" class="card-img-top imghealthtip"style="border-radius:5px;">
+      </div>
+      <div class="col-lg-8 col-md-8 col-sm-7 col-11" style="margin:auto;margin-top:0px;">
+          <p style="white-space: pre-wrap;font-size:13px;color:grey;margin:0px"><i class="bi bi-clock"></i> Posted on {{tips.posted_on}}</p>
+          <p style="white-space: pre-wrap;font-size:13px;color:grey;margin:0px"><i class="bi bi-person-circle"></i> By: {{tips.posted_by}}</p>
+          <br>
+          <p style="font-size:35px;font-family:'Abril Fatface',sans-serif;margin:0px">{{tips.name}}</p>
+        <p style="white-space: pre-wrap;font-size:13px;color:grey;">{{tips.caption}}</p>
+      </div>
+      </div>
+      <hr>
+      <div style="font-size:14px;font-family:'Segoe UI', sans-serif;color:#303030;">
+      <p style="white-space: pre-wrap">{{tips.introduction}}</p>
+      <p style="white-space: pre-wrap">{{tips.description}}</p>
+      <p style="white-space: pre-wrap;font-weight:600;">{{tips.conclusion}}</p>
+      </div>
+      <p style="color:transparent">.</p>
+      <div style="position:absolute;bottom:0px;">
+        <label style="font-size:20px;margin-left:10px;"><a href="https://www.instagram.com/mrinalmayank7/" style="color:grey;"><i class="bi bi-instagram"></i></a></label>
+        <label style="font-size:20px;margin-left:10px;"><a href="https://www.linkedin.com/in/mrinal-mayank-bb3112200/" style="color:grey;"><i class="bi bi-linkedin"></i></a></label>
+        <label style="font-size:21px;margin-left:10px;"><a href="https://github.com/mrinalmayank7/" style="color:grey;"><i class="bi bi-github"></i></a></label>
+
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-sm-11 col-11" style="margin:auto;margin-top:0px;">
+
+      <div class="enrollcard text-center" style="padding:20px;border:1px solid #E5E7E9">
+        <p style="font-size:18px;font-weight:400;margin-bottom:0px;
+        font-family:Segoe UI Semibold;">Our Program</p>
+        <hr style="margin-top:10px;margin-bottom:10px;" >
+        <p style="font-size:12px;color:grey;margin-top:0px;">  Enroll in our diet program plans to get customized diet plan, workout routine as per your body requirements, weekly monitoring
+          & much more based on your selected plan.</p>
+
+          <a class="btn btn-outline-primary" href="{% url 'programs' %}"
+          style="border-radius:50px;font-size: 15px;font-weight:600;">Enroll Now <i class="bi bi-chevron-double-right"></i></a>
+      </div><br>
+      <div class="joinuscard" style="background:#EAF2F8;padding:20px">
+        <p style="font-size:18px;font-weight:600;margin-bottom:3px;text-align:center;
+        font-family:Segoe UI Semibold">Join us</p>
+        <hr >
+        <div class="text-center">
+          <p style="font-size:12px;color:grey;margin-bottom:4px">Welcome to our community, subscribe us now to get latest updates. </p>
+          <a class="btn btn-outline-success" href="{% url 'home' %}#subscribe" style="font-weight:600;border-radius:80px;border-width:0px;"><i class="bi bi-bell"></i> Subscribe Now</a>
+          </div>
+      </div><br>
+
+      <div style="background:#07153C;padding:20px">
+      <p style="font-size:18px;font-weight:600;margin-bottom:3px;color:white;text-align:center;
+      font-family:Segoe UI Semibold"><i class="bi bi-plus-circle-dotted"></i>  Latest Posts</p>
+      <hr color="white">
+
+        {% for topic in topics %}
+        {% if forloop.counter < 9 %}
+        <p style="margin-bottom:0px;"><a data-product="{{ topic.id }}" href="{% url 'read_more' topic.id %}"
+          style="font-size:13px;color:white;margin-bottom:0px;">{{topic.name}}</a></p>
+          <p style="font-size:11px;color:lightblue;margin-bottom:0px;">Posted on : {{topic.posted_on}}</p>
+          <hr color="#0A336A"style="margin-top:5px;margin-bottom:5px">
+      {% endif %}
+      {% endfor %}
+      <br>
+      <div class="text-center">
+        <a class="btn btn-outline-primary" href="{% url 'health_blog' %}"
+        style="border-radius:50px;font-size: 15px;font-weight:500;">View All</a>
+      </div>
+
+    </div>
+    <br>
+
+
+    </div>
+
+  </div>
+</div>
+
+{% endblock content %}

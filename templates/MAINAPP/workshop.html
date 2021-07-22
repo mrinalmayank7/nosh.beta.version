@@ -1,0 +1,141 @@
+{%  extends 'MAINAPP/home.html' %}
+{% load static %}
+{% block content %}
+<div class="bground1">
+  <div class="backdrop">
+<br><br><br><br><br>
+{% for fnp in fnps %}
+  {% if forloop.counter < 2 %}
+
+{% if fnp.enable_enrollment %}
+<p style="text-align:center;margin-bottom:5px;"><img src="{% static 'images/logo1.png' %}"></p>
+<hr style="margin-right:20%;margin-left:20%;border: 0;height: 1px;background-image: linear-gradient(to right, rgba(255,255,255, 0), rgba(255,255,255, 0.75), rgba(255,255,255, 0));">
+
+<div class="container backdrop" style="background:rgba(255,255,255,0.2);box-shadow:0px 0px 15px 0px rgba(0,0,0,0.4);">
+  <div class="row">
+    <div class="grid1 col-lg-7 col-md-12 col-sm-12 col-12" style="margin-left:auto;margin-right:auto;">
+        <div class="text-center" style="border:0px;margin-right:5%;margin-left:5%;padding:10px;background:white;box-shadow:12px 12px 30px 0px rgba(0,0,0,0.2)">
+          <br><p style="font-size:22px;color:black;text-align:center;font-family:'Playfair Display', serif;" >{{fnp.workshop_name}}</p>
+            <hr style="margin-top:0px;">
+              <p style="font-size:12px;color:black;white-space: pre-wrap;margin:8px;"><i class="bi bi-clock"></i> Program Duration : {{ fnp.workshop_duration}}</p>
+            <p style="font-size:12px;color:grey;white-space: pre-wrap;">{{ fnp.workshop_introduction}}</p>
+        </div>
+        <br>
+        <div style="padding:10px;background:black;box-shadow:12px 12px 30px 0px rgba(0,0,0,0.6);margin-right:5%;margin-left:5%;">
+          <div style="padding:15px;border: 1px solid #212F3C">
+          <p style="text-align:center;font-size:18px;color:white;font-weight:600;">{{fnp.sub_heading1}}</p>
+          <hr color="#212F3C" style="margin-top:0px;">
+          <p style="font-size:12px;color:#D6DBDF;white-space: pre-wrap;">{{ fnp.sub_body1}}</p>
+          <br>
+          <p style="text-align:center;font-size:18px;color:white;font-weight:600;">{{fnp.sub_heading2}}</p>
+          <hr color="#212F3C"style="margin-top:0px;">
+          <p style="font-size:12px;color:#D6DBDF;white-space: pre-wrap;">{{ fnp.sub_body2}}</p>
+        </div>
+      </div>
+        <br>
+
+    </div>
+
+    <div class="grid2 col-lg-5  col-md-12 col-sm-12 col-12" style="margin-left:auto;margin-right:auto;background:#0B5345;display:flex;flex-wrap:wrap;">
+      <div class="innerdiv" style="width:100%;margin-right:5%;margin-left:5%;">
+        <br>
+        <p style="font-family:'Playfair Display', serif;font-size:30px;text-align:center;color:white;">Enroll Now</p>
+          <p style="font-size:16px;color:#A2D9CE;text-align:center;font-weight:600;"><i class="fa fa-flip-horizontal fa-pagelines" aria-hidden="true"></i> {{fnp.workshop_name}} <i class="fa fa-pagelines" aria-hidden="true"></i></p><hr color="white">
+        <p style="font-size:12px;color:white;text-align:center;">{{fnp.workshop_caption}}</p>
+
+
+        <form class="needs-validation" action="{% url 'workshop' %}" enctype="multipart/form-data" method="POST" novalidate>
+          {% for message in messages %}
+          <p style="text-align:center;color:red;font-size:13px">{{message}}</p>
+          {% endfor %}
+          {% csrf_token %}
+          <div class="required_fields">
+            <label for="id_participant_name" style="font-size:15px;color:#CACFD2;margin-bottom:0px;margin-top:10px;">Your Name <label style="font-size:15px;color:red;"> * </label></label>
+            <input type="text" class="form-control"name="participant_name" id="id_participant_name" style="background:transparent;border:0px;
+            border-bottom:1px solid #AEB6BF ;border-radius:0px;font-size:12px;color:white" required>
+            <div class="invalid-feedback">
+              <p style="font-size:12px;color:#FF5F5F">Invalid Name</p>
+            </div>
+          </div>
+
+        <div class="required_fields">
+          <label for="id_participant_email" style="font-size:15px;color:#CACFD2;margin-bottom:0px;margin-top:10px;">E-mail Address <label style="font-size:15px;color:red;"> * </label></label>
+          <input type="email" class="form-control"name="participant_email" id="id_participant_email" style="background:transparent;border:0px;
+          border-bottom:1px solid #AEB6BF  ;border-radius:0px;font-size:12px;color:white" required>
+          <div class="invalid-feedback">
+            <p style="font-size:12px;color:#FF5F5F">Invalid email</p>
+          </div>
+        </div>
+
+
+        <div class="required_fields">
+          <label for="id_participant_phone" style="font-size:15px;color:#CACFD2;margin-bottom:0px;margin-top:10px;">Phone Number <label style="font-size:15px;color:red;"> * </label></label>
+          <input type="text" class="form-control"name="participant_phone" id="id_participant_phone" pattern="[0789][0-9]{9,11}" style="background:transparent;border:0px;
+          border-bottom:1px solid #AEB6BF ;border-radius:0px;font-size:12px;color:white" required>
+          <div class="invalid-feedback">
+            <p style="font-size:12px;color:#FF5F5F">Invalid phone number</p>
+          </div>
+        </div>
+
+          <div class="text-center">
+            <br>
+          <input type="submit" class="btn btn-light  text-center" value="    Enroll me    " style="border-radius:30px;font-size:15px;font-weight:700;color:#0B5345;">
+          </div>
+        </form>
+        <br>
+        <hr style="margin:10px;border: 0;height: 1px;background-image: linear-gradient(to right, rgba(255,255,255, 0), rgba(255,255,255, 0.75), rgba(255,255,255, 0));">
+        <div >
+          <p style="text-align:center;font-size:14px;color:#A2D9CE;font-weight:600;text-align-center;">{{fnp.workshop_end_paragraph_heading}}</p>
+          <p style="font-size:11px;color:white;white-space: pre-wrap;">{{ fnp.workshop_end_paragraph_body}}</p>
+        </div><br>
+      </div>
+    </div>
+  </div>
+</div><br><br>
+
+{% else %}
+<br>
+<p style="text-align:center;margin-bottom:5px;"><img src="{% static 'images/logo1.png' %}"></p>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="grid2 col-lg-6  col-md-10 col-sm-11 col-11" style="margin-left:auto;margin-right:auto;background:#0B5345;">
+      <div class="innerdiv" style="margin-right:5%;margin-left:5%;">
+        <br>
+        <p style="font-size:25px;text-align:center;color:white;">Come back later</p>
+          <hr style="border: 0;height: 1px;background-image: linear-gradient(to right, rgba(255,255,255, 0), rgba(255,255,255, 0.75), rgba(255,255,255, 0));">
+
+        <p style="font-size:12px;color:white;text-align:center;">Sorry, we could not find any active enrollments for now, come back later.</p>
+        <br>
+
+      </div>
+    </div>
+  </div>
+</div><br><br><br>
+
+{% endif %}
+{% endif %}
+{% endfor %}
+</div>
+  </div>
+<script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+'use strict';
+window.addEventListener('load', function() {
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.getElementsByClassName('needs-validation');
+  // Loop over them and prevent submission
+  var validation = Array.prototype.filter.call(forms, function(form) {
+    form.addEventListener('submit', function(event) {
+      if (form.checkValidity() === false) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      form.classList.add('was-validated');
+    }, false);
+  });
+}, false);
+})();
+</script>
+{% endblock content %}

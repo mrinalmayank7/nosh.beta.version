@@ -1,0 +1,127 @@
+{%  extends 'MAINAPP/home.html' %}
+{% load static %}
+
+{% block content %}
+
+<br><br><br><br><br><br>
+<div class="container">
+<div class="row">
+<div class="programcards col-lg-9 col-md-8 col-sm-11 col-11" style="padding:20px;margin-left:auto;margin-right:auto;margin-bottom:24px;">
+  <p style="font-size:18px;text-align:center;font-family:'Barlow Semi Condensed',sans-serif;margin-bottom:0px;">Welcome to our </p>
+  <p style="font-size:35px;text-align:center;font-family:'Barlow Semi Condensed',sans-serif;margin-top:0px;letter-spacing:5px;"><b>PROGRAM</b></p>
+  <p style="font-size:14px;text-align:center;color:black;margin:10px;font-family:'Rasa',sans-serif;">
+    Enroll in our diet program to get customized diet plan, workout routine as per your body requirements, weekly monitoring,
+    unlimited whatsapp assisstance from 10am to 7pm (Mon to Sat) & much more based on your selected plan.</p>
+<hr style="margin:0px;"><br>
+  <div class="viewprogramgrid" style="padding:20px;">
+
+          <p style="font-size:30px;text-align:center;font-family:'Abril Fatface',sans-serif;margin:0px">{{plans.plan_name}}</p>
+            <p style="font-size:16px;margin-bottom:0px;margin-top:20px;text-align:center;font-weight:600;">Enroll Now</p>
+          <p style="font-size:12px;color:green;text-align:center;margin0px;">
+            Select the available contact options to enroll.</p>
+          <div class="row">
+            <div class="col-lg-5 col-md-6 col-sm-6 col-11" style="margin-left:auto;margin-right:auto;margin-bottom:10px;display:flex;flex-wrap:wrap;">
+                  <div class="enrollA text-center" style="background:#1C2833;margin-left:auto;margin-right:auto;padding:20px;width:100%;">
+                    <p style="font-size:15px;font-weight:400;margin-bottom:3px;
+                    font-family:Segoe UI Semibold;color:white">WhatsApp</p>
+                  <p style="font-size:12px;color:#85929E;margin-bottom:1px;">WhatsApp us to enroll. Click below to message.</p>
+                  <a href="https://api.whatsapp.com/send/?phone=+917858832086&text=Hello" style="color:#34495E;font-size:40px;">
+                  <p style="margin-bottom:0px;"><i class="bi bi-whatsapp glow"></i></p>
+                  </a>
+                </div>
+            </div>
+
+            <div class="col-lg-5 col-md-6 col-sm-6 col-11" style="margin-left:auto;margin-right:auto;display:flex;flex-wrap:wrap;margin-bottom:10px;">
+                  <div class="EnrollB text-center" style="background:#EBEDEF;margin-left:auto;margin-right:auto;padding:20px;width:100%;">
+                    <p style="font-size:15px;font-weight:400;margin-bottom:3px;
+                    font-family:Segoe UI Semibold;">Others</p>
+                  <p style="font-size:12px;color:#85929E;margin-bottom:1px;">Click below to view other contact options to enroll.</p>
+                  <a href="{% url 'contact' %}" style="color:#34495E;font-size:40px;">
+                  <p style="margin-bottom:0px;"><i class="bi bi-person-lines-fill instaglow"></i></p>
+                  </a>
+                </div>
+            </div>
+
+          </div>
+    <hr>
+<p style="white-space: pre-wrap;font-size:14px;font-family:'Segoe UI', sans-serif;color:#303030 ;">{{plans.plan_introduction}}</p>
+<p style="font-size:18px;font-weight:550;">What our plan includes :</p>
+<p style="white-space: pre-wrap;font-size:14px;font-family:'Segoe UI', sans-serif;color:#303030 ;">{{plans.plan_description_A}}</p>
+<p style="font-size:18px;font-weight:550;">How our plan works :</p>
+<p style="white-space: pre-wrap;font-size:14px;font-family:'Segoe UI', sans-serif;color:#303030;">{{plans.plan_description_B}}</p>
+<p style="white-space: pre-wrap;font-size:14px;font-family:'Segoe UI', sans-serif;color:#303030;font-weight:500;">{{plans.plan_conclusion}}</p>
+
+  </div>
+  <p style="color:transparent">.</p>
+  <div style="position:absolute;bottom:0px;">
+    <label style="font-size:20px;margin-left:10px;"><a href="https://www.instagram.com/mrinalmayank7/" style="color:grey;"><i class="bi bi-instagram"></i></a></label>
+    <label style="font-size:20px;margin-left:10px;"><a href="https://www.linkedin.com/in/mrinal-mayank-bb3112200/" style="color:grey;"><i class="bi bi-linkedin"></i></a></label>
+    <label style="font-size:21px;margin-left:10px;"><a href="https://github.com/mrinalmayank7/" style="color:grey;"><i class="bi bi-github"></i></a></label>
+
+  </div>
+</div>
+
+
+<div class="col-lg-3 col-md-4 col-sm-11 col-11" style="margin-left:auto;margin-right:auto;">
+
+ <div class="" style="border:1px solid transparent;background:#EAF2F8 ">
+  <p style="font-size:18px;margin-bottom:0px;margin-top:30px;text-align:center;font-weight:600;">How it works?</p>
+  <hr>
+  <p style="font-size:12px;text-align:center;color:grey;margin:20px;">
+    Get started with our diet programs , follow these steps to enroll for the plan as per your choice.</p>
+  </div>
+  <div class="stepsgrid text-center" style="padding:10px;margin-left:auto;margin-right:auto;">
+  <p style="font-size:90px;color:black;font-family:'Barlow Semi Condensed',sans-serif;font-weight:600;margin-bottom:0px;">01</p>
+  <hr style="margin-top:0px;">
+  <p style="font-size:12px;color:grey;">
+    Navigate through our program & find the plan which is suitable as per you or realted to your problem.</p>
+
+  <p style="font-size:90px;color:black;font-family:'Barlow Semi Condensed',sans-serif;font-weight:600;margin-bottom:0px;">02</p>
+  <hr style="margin-top:0px;">
+  <p style="font-size:12px;color:grey;">
+      Go to the plan to get the detailed description about the corresponding plan that you have chosen.</p>
+
+  <p style="font-size:90px;color:black;font-family:'Barlow Semi Condensed',sans-serif;font-weight:600;margin-bottom:0px;">03</p>
+  <hr style="margin-top:0px;">
+  <p style="font-size:12px;color:grey;">
+  To get enrolled in the plan choose any of the available contact options & send your details. We will revert you back soon to
+confirm your enrollment.</p>
+  </div><br>
+
+  <div class="joinuscard" style="background: #EAF2F8 ;padding:20px;margin-left:auto;margin-right:auto;" >
+    <p style="font-size:18px;font-weight:600;margin-bottom:3px;text-align:center;
+    font-family:Segoe UI Semibold">Join us</p>
+    <hr >
+    <div class="text-center">
+      <p style="font-size:12px;color:grey;margin-bottom:4px">Welcome to our community, subscribe us now to get latest updates. </p>
+      <a class="btn btn-outline-success" href="{% url 'home' %}#subscribe" style="font-weight:600;border-radius:80px;border-width:0px;"><i class="bi bi-bell"></i> Subscribe Now</a>
+      </div>
+  </div><br>
+
+  <div style="background:#07153C;padding:20px">
+  <p style="font-size:20px;margin-bottom:3px;color:white;text-align:center;
+  font-family:'Playfair Display', serif;">Our blog</p>
+
+  <hr color="white">
+    {% for topic in topics %}
+    {% if forloop.counter < 4 %}
+
+    <p style="margin-bottom:0px;"><a data-product="{{ topic.id }}" href="{% url 'read_more' topic.id %}"
+      style="font-size:13px;color:white;margin-bottom:0px;">{{topic.name}}</a></p>
+      <p style="font-size:11px;color:lightblue;margin-bottom:0px;">{{topic.caption}}</p>
+      <hr color="#0A336A"style="margin-top:5px;margin-bottom:5px">
+  {% endif %}
+  {% endfor %}
+  <br>
+  <div class="text-center">
+    <a class="btn btn-outline-primary" href="{% url 'health_blog' %}"
+    style="border-radius:50px;font-size: 15px;font-weight:500;"><i class="fa fa-paper-plane" aria-hidden="true"></i> Explore More</a>
+
+  </div>
+</div><br>
+
+</div>
+</div>
+</div>
+<br>
+{% endblock content %}

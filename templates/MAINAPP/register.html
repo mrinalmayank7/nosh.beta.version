@@ -1,0 +1,114 @@
+{%  extends 'MAINAPP/home.html' %}
+{% load static %}
+
+{% block content %}
+<div class="bground1" >
+<div class="coverblur backdrop">
+<!--<div id="particles-js" style="position:absolute;height:70%;width:100%;"></div>-->
+<div class="container">
+  <div class="row">
+    <div class="col-xl-4 col-lg-5 col-md-7 col-sm-9 col-10 signgrid">
+      <p style="text-align:center;font-weight:700;font-size:22px;">Sign up</p>
+    <hr>
+    {%  if registered %}
+    {% for message in messages %}
+    <p style="text-align:center;color:green;font-size:13px">{{message}}</p>
+    {% endfor %}
+    <div class="text-center">
+    <p style="font-size:13px">Login to your account now, we are excited to get you soon with us for your healthiest journey.</p>
+    <a class="btn btn-outline-primary" href="{% url 'user_login' %}" style="font-weight:600;border-radius:80px;border-color:transparent;">Log in</a>
+    </div>
+    {% elif user.is_authenticated %}
+    <div class="text-center">
+      <p style="color:green;font-size:13px">You are already registered.</p>
+      <a class="btn btn-dark" href="{% url 'home' %}"
+      style="border-radius:80px;font-size:14px;background:black;">Back to home <i class="bi bi-chevron-double-right"></i></a>
+
+    </div>
+    {% elif user_form.errors or profile_form.errors %}
+    <p style="text-align:center;color:red;font-size:13px">Something went wrong or user already exist.Try again.</p>
+    <div class="text-center">
+    <a class="btn btn-outline-primary" href="{% url 'user_login' %}" style="font-weight:600;border-radius:80px;border-color:transparent;">Log in</a>
+    <a class="btn btn-outline-primary" href="{% url 'register' %}" style="font-weight:600;border-radius:80px;border-color:transparent;">Sign up</a>
+    </div>
+
+    {% else %}
+
+    <form class="needs-validation" action="{% url 'register' %}" enctype="multipart/form-data" method="POST" novalidate>
+      {% csrf_token %}
+      <div class="required_fields">
+        <label for="username" style="font-size:14.3px;"><b>Username </b><label style="font-size:11px;color:red;"> *Use only letters & digits</label></label>
+        <input type="text" class="form-control"name="username" pattern="(?=.{1,50}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])" placeholder="Don't use spaces/symbols" style="background:rgba(0,0,0,0.1);border-width:0px;font-size:14px;" required>
+        <div class="invalid-feedback">
+          <p style="font-size:12px">Invalid username</p>
+        </div>
+      </div>
+
+    <div class="required_fields">
+      <label for="password" style="font-size:14.3px;"><b>Password </b><label href="#" style="font-size:11px;color:red;"> *Minimum eight characters</label></label>
+      <input type="password" class="form-control" id="myInput" name="password" pattern="().{8,}" placeholder="Enter Password" style="background:rgba(0,0,0,0.1);border-width:0px;font-size:14px;" required>
+      <div class="invalid-feedback">
+        <p style="font-size:12px">Invalid password</p>
+      </div>
+      <input type="checkbox"  onclick="myFunction()">
+      <label for="myInput"><small class="form-text text-muted">Show Password</small></label>
+    </div>
+
+    <div class="required_fields">
+      <label for="email" style="font-size:14.3px;"><b>Email </b><label style="font-size:11px;color:red;"> *</label></label>
+      <input type="email" class="form-control"name="email" placeholder="Enter Email" style="background:rgba(0,0,0,0.1);border-width:0px;font-size:14px;" required>
+      <div class="invalid-feedback">
+        <p style="font-size:12px">Invalid email</p>
+      </div>
+    </div>
+
+    <div class="required_fields">
+      <label for="name" style="font-size:14.3px;"><b>Name </b><label style="font-size:11px;color:red;"> *</label></label>
+      <input type="text" class="form-control"name="name" placeholder="What should we call you ?" style="background:rgba(0,0,0,0.1);border-width:0px;font-size:14px;" required>
+      <div class="invalid-feedback">
+        <p style="font-size:12px">Invalid details</p>
+      </div>
+
+    <div class="required_fields">
+      <label for="phone" style="font-size:14.3px;"><b>Phone</b></label>
+      <input type="text" class="form-control"name="phone" placeholder="Enter Phone Number" pattern="[0789][0-9]{9,11}" style="background:rgba(0,0,0,0.1);border-width:0px;font-size:14px;">
+      <div class="invalid-feedback">
+        <p style="font-size:12px">Enter a valid phone number</p>
+      </div>
+    </div>
+
+      <div class="text-center">
+        <br>
+      <input type="submit" class="btn btn-primary  text-center" value="SIGN UP" style="border-radius:30px;font-size:14px;width:100%;font-weight:600;">
+      </div>
+    </form>
+    <script>
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+  (function() {
+    'use strict';
+    window.addEventListener('load', function() {
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.getElementsByClassName('needs-validation');
+      // Loop over them and prevent submission
+      var validation = Array.prototype.filter.call(forms, function(form) {
+        form.addEventListener('submit', function(event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    }, false);
+  })();
+  </script>
+
+
+    {% endif  %}
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+
+{% endblock content %}

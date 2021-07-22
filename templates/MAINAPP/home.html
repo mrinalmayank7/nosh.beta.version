@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <link href="http://fonts.cdnfonts.com/css/aquire" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@100;200;300;400;500;600;700&family=Playfair+Display&family=Abril+Fatface&family=Josefin+Sans:wght@100;200;300;400;500;600;700&family=Italiana&family=Rasa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  </head>
+
+  <body><!--background="{% static 'images/lgbg15.jpg'%}"-->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top fixed-top-2 backdrop" style="margin-top:45px;padding-top:18px;background-color:rgba(255,255,255,0.9);box-shadow:0px 0px 30px 0px rgba(0,0,0,0.1)">
+
+    <label style="font-size:13px;padding-bottom:0px;margin-bottom:0px;margin-left:10px;"><a href="https://api.whatsapp.com/send/?phone=+917858832086&text=Hello" style="color:black;"><i class="bi bi-telephone-fill"></i> +917858832086</a></label>
+    <label style="font-size:13px;padding-bottom:0px;margin-bottom:0px;margin-left:10px;"><a href="mailto:nosh.beta.version@gmail.com" style="color:black;"><i class="bi bi-envelope-fill"></i> nosh.beta.version@gmail.com</a></label>
+
+<div style="margin-left:auto;">
+    <label style="font-size:14px;padding-bottom:0px;margin-bottom:0px;margin-left:10px;"><a href="https://api.whatsapp.com/send/?phone=+917858832086&text=Hello" style="color:black;"><i class="bi bi-whatsapp"></i></a></label>
+    <label style="font-size:15px;padding-bottom:0px;margin-bottom:0px;margin-left:10px;"><a href="mailto:nosh.beta.version@gmail.com" style="color:black;"><i class="bi bi-envelope"></i></a></label>
+    <label style="font-size:14px;padding-bottom:0px;margin-bottom:0px;margin-left:10px;"><a href="https://www.instagram.com/mrinalmayank7/" style="color:black;"><i class="bi bi-instagram"></i></a></label>
+    <label style="font-size:14px;padding-bottom:0px;margin-bottom:0px;margin-left:10px;"><a href="https://www.linkedin.com/in/mrinal-mayank-bb3112200/" style="color:black;"><i class="bi bi-linkedin"></i></a></label>
+    <label style="font-size:15px;padding-bottom:0px;margin-bottom:0px;margin-left:10px;"><a href="https://github.com/mrinalmayank7/" style="color:black;"><i class="bi bi-github"></i></a></label>
+
+  </div>
+
+    </nav>
+    <nav class="navbar navbar-expand-lg navbar-light  fixed-top" style="padding:4px;background-color:white;border-bottom:1px solid #EBEDEF;">
+    <a class="nav-link active" href="{% url 'home' %}"><img src="{% static 'images/navlogo.png' %}" style=""></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li class="nav-item "><a class="nav-link navbttn" href="{% url 'home' %}" style="font-size: 14px;color:black;"><b  style="font-weight:400;">Home</b></a></li>
+        <li class="nav-item "><a class="nav-link navbttn" href="{% url 'programs' %}" style="font-size: 14px;color:black;"><b style="font-weight:400;">Our Program</b></a></li>
+        <li class="nav-item "><a class="nav-link navbttn" href="{% url 'health_blog' %}" style="font-size: 14px;color:black;"><b style="font-weight:400;">Blog</b></a></li>
+        <li class="nav-item "><a class="nav-link navbttn" href="{% url 'workshop' %}" style="font-size: 14px;color:black;"><b style="font-weight:400;">Workshop</b></a></li>
+        <li class="nav-item "><a class="nav-link navbttn" href="{% url 'product' %}" style="font-size: 14px;color:black;"><b style="font-weight:400;">Products</b></a></li>
+        <li class="nav-item "><a class="nav-link navbttn" href="{% url 'about' %}" style="font-size: 14px;color:black;"><b style="font-weight:400;">About</b></a></li>
+        <li class="nav-item "><a class="nav-link navbttn" href="{% url 'contact' %}" style="font-size: 14px;color:black;"><b style="font-weight:400;">Contact Us</b></a></li>
+      </ul>
+      <div style="margin-left:auto;">
+        <ul class="navbar-nav">
+          <form class="form-inline mr-sm-4" method="get" action="/search" >
+          <div class="input-group" style="border-radius:50px;background:rgb(232, 240, 254);">
+          <input class="form-control searchbar" type="search" name="query" id="query" placeholder="Search here"
+          style="border-top-left-radius:50px;border-bottom-left-radius:50px;border-width:0px;font-size:12px;padding:18px 0px 18px 18px;background:transparent;">
+          <span class="input-group-append">
+          <button class="searchbutton" type="submit" style="border-radius:50px;border:0px;font-size: 16px;background:transparent;margin-right:10px;margin-left:5px"><i class="bi bi-search"></i></button>
+          </span>
+            </div>
+          </form>
+          {% if user.is_authenticated %}
+          <div class="dropdown dropleft" style="margin:0px;padding:5px;">
+           <button id="dropdownMenuButton" data-toggle="dropdown"style="margin:0px;margin-right:30px;padding:0px;
+           font-family:'Segoe UI', sans-serif;font-size: 15px;background:transparent;border:0px;color:grey;">
+            <i class="bi bi-person-fill"></i> {{user.username }}
+           </button>
+           <div class="dropdown-menu text-center backdrop" aria-labelledby="dropdownMenuButton"
+           style="background:rgba(255,255,255,0.7);border:0px;box-shadow:0px 0px 15px 0px rgba(0, 0, 0,0.2);padding:20px;width:35vh;">
+             <p style="font-size:30px;margin-bottom:0px;"><i class="bi bi-person-circle"></i></p>
+             <li class="nav-item" style="font-family:'Segoe UI Semibold', sans-serif;font-size: 16px;color:#6495ED">{{user.username }}</li>
+             <hr color='#E5E7E9' style="margin:5px;">
+             <li class="nav-item" style="font-family:'Segoe UI', sans-serif;font-size: 12px;color:#5D6D7E ">{{user.email }}</li>
+             <br>
+             <a class="btn btn-outline-primary" href="{% url 'logout' %}"
+             style="font-weight:600;border-radius:80px;font-size:15px;">Logout</a>
+           </div>
+          </div>
+
+
+          {% else %}
+          <li class="nav-item"><a class="nav-link" href="{% url 'user_login' %}"
+            style="font-family:'Segoe UI', sans-serif;font-size:15px;color:black;margin-right:30px;"><i class="bi bi-person-fill"></i><b> Login</b></a></li>
+          {% endif %}
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+{% block content %}
+<div class ="bground2" style="margin-left:auto;margin-right:auto;">
+<br><br><br><br><br>
+<p style="font-size:12px;letter-spacing:1px;text-align:right;margin-bottom:20px;margin-right:4%;"><a href="{% url 'developer' %}" style="color:black;">Developed by Mrinal <i class="bi bi-chevron-double-right"></i></a> </p>
+<div id="particles-js" style="position:absolute;height:420px;%;width:92%;left: 50%;
+transform: translate(-50%,0%);background:black;box-shadow:0px 0px 15px 0px rgba(0, 0, 0,0.3);"></div>
+<div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-md-12 col-sm-12 col-12 text-center" style="margin-left:auto;margin-right:auto;padding-top:15px;">
+          <div class="counters">
+               <div class="row">
+                 {% for stat in stats %}
+                <div class="col-lg-2 col-md-2 col-sm-4 col-12 counterdiv" style="margin-left:auto;margin-right:auto;
+                margin-top:0px;text-align:center;">
+                  <div class="counter" style="font-family:'Barlow Semi Condensed', sans-serif;font-size:25px;font-weight:500;color:white;">{{stat.count}}</div>
+                  <p style="font-size:12px;color:#85929E;">{{stat.label}}</p>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+        </div>
+        <div class="col-lg-8 col-md-11 col-sm-11 col-10" style="margin-left:auto;margin-right:auto;margin-bottom:20px;">
+            <div class="slider" style="border-radius:0px;border:0px;">
+              <div class="slides">
+                <input type="radio" name="radio-btn" id="radio1">
+                <input type="radio" name="radio-btn" id="radio2">
+                <input type="radio" name="radio-btn" id="radio3">
+                <!--slide images start-->
+                <div class="slide first" style="background:black"><img src="{% static 'images/s1img.jpg' %}" alt="">
+                  <div class="slidetext1 text-center col-lg-10 col-md-11 col-sm-12 col-12">
+                    <div style="border:2px solid white;padding:20px;">
+                      <p style="font-size:14px;font-family:'Barlow Semi Condensed',sans-serif;color:white;margin:0px;">The right time is always now. we're with you</p>
+                    <p style="font-size:30px;font-family:'Barlow Semi Condensed',sans-serif;color:white;font-weight:600">START TODAY</p>
+                    <br>
+                    </div>
+                    <br>
+                    <div  class="col-lg-10 col-md-11 col-sm-11 col-11"style="background:black;padding:10px;
+                    box-shadow:0px 0px 40px 8px rgba(0,0,0,0.4);margin-left:auto;margin-right:auto;margin-top:-70px;">
+                    <div style="padding:10px;border: 1px solid #2F4F4F ">
+                    <p style="color:white;font-size:11px;">We helps people to rebuild the Faith in Food and helps them connect to a better lifestyle. My work is to help people decode and demystifying what it means to live a well life, inside and out.</p>
+                    <a class="btn btn-light " href="{% url 'about' %}"
+                      style="border-radius:50px;font-size: 15px;background:white;border:0px;margin-bottom:10px;color:black"><b>About Us </b><i class="bi bi-chevron-double-right"></i></a>
+                      </div>
+                      </div>
+                  </div>
+                </div>
+                <div class="slide"><img src="{% static 'images/s2img.jpg' %}" alt="">
+                  <div class="slidetext2 text-center col-lg-8 col-md-10 col-sm-12 col-12">
+                    <p style="font-size:50px;margin:0px;font-family:'Barlow Semi Condensed',sans-serif;margin-top:0px;color:black;letter-spacing:10px;"><b>EXPLORE</b></p>
+                    <p style="font-size:24px;margin-top:0px;color:black;font-weight:700;,margin:0px;letter-spacing: 5px;">PROGRAM</p>
+                    <div class="" style="background:rgba(255,255,255,0.8);padding:10px;box-shadow:0px 0px 20px 0px rgba(0,0,0,0.4)">
+
+                    <p style="font-size:12px;color:black;margin-top:0px;margin-bottom:0px;border:1px solid #CACFD2;padding:10px;">Enroll in our diet program plans to get customized diet plan & more. Click below to explore our programs.</p>
+                    </div>
+                    <br> <a class="btn btn-dark " href="{% url 'programs' %}"
+                      style="border-radius:50px;font-size: 15px;background:black;border:0px;">Explore <i class="bi bi-chevron-double-right"></i></a>
+                    <br>
+                  </div>
+                </div>
+                <div class="slide"><img src="{% static 'images/s3img.jpg' %}" alt="">
+                  <div class="slidetext3 col-lg-8 col-md-8 col-sm-10 col-11" style="padding:10px;">
+                    <p style="font-size:65px;margin:0px;font-family:'Barlow Semi Condensed',sans-serif;margin-top:0px;
+                    color:white;letter-spacing:10px;"><b>BLOG</b></p>
+                    <p style="font-size:12px;color:white;margin-top:5px;margin-bottom:10px;">Discover insights on Diet, Health, Beauty, Nutrition, Ayurveda & More. Click below to see our blog posts.</p>
+                    <br>
+                    <a class="btn btn-light " href="{% url 'health_blog' %}"
+                      style="border-radius:50px;font-size: 15px;color:black;background:white;border:0px;"><b>Posts </b><i class="bi bi-chevron-double-right"></i></a>
+                  </div>
+                </div>
+
+                <!--automatic navigation start-->
+                <div class="navigation-auto">
+                  <div class="auto-btn1"></div>
+                  <div class="auto-btn2"></div>
+                  <div class="auto-btn3"></div>
+                </div>
+              </div>
+              <!--manual navigation start-->
+              <div class="navigation-manual">
+                <label for="radio1" class="manual-btn"></label>
+                <label for="radio2" class="manual-btn"></label>
+                <label for="radio3" class="manual-btn"></label>
+              </div>
+              <!--manual navigation end-->
+            </div>
+          </div>
+
+            <div class="col-lg-4 col-md-11 col-sm-11 col-10 " style="margin-left:auto;margin-right:auto;display:flex;margin-bottom:20px;">
+            <div class="text-center" style="padding:0px 20px 20px 20px;background:black;border:1px solid #34495E;
+            box-shadow:0px 0px 40px 0px rgba(23, 32, 42 ,0.7);border-radius:0px;">
+              <br>
+                <p style="text-align:center;margin-bottom:5px;"><img src="{% static 'images/logo1.png' %}"></p>
+              <hr color="#17202A"style="margin-top:0px;">
+              <p   style = "color:#85929E;font-size:12px;">Are you struggling to eat your normal diet without symptoms flaring? Let's begin your healthiest journey together. You’re not alone and help is at your hand. Providing nutrition and healthy lifestyle consultations to help you live life to the fullest.</p>
+              <p   style = "color:white;font-size:12px;">Subscribe now to get latest updates & stay connected with us.</p>
+              <a class="btn btn-light" href="{% url 'home' %}#subscribe" style="font-weight:700;background:white;border-radius:80px;border-width:0px;"> Subscribe <i class="bi bi-bell"></i></a>
+
+                  </div>
+            </div>
+      </div>
+    <br>
+
+     <div class="homegrid1 backdrop" style="padding:20px ;border:0px;border-radius:0px;background:rgba(255,255,255,0.2);">
+     <div class=row>
+     <div class="col-lg-9 col-md-11 col-sm-11 col-11 coloumn1" style="margin-left:auto;margin-right:auto;">
+          <div class="programshome">
+            <p style="font-size:18px;text-align:center;font-family:'Barlow Semi Condensed',sans-serif;margin-bottom:0px;">Get started with</p>
+            <p style="font-size:30px;text-align:center;font-family:'Barlow Semi Condensed',sans-serif;margin-top:0px;letter-spacing: 5px;"><b>PROGRAM</b></p>
+            <div class="row" style="border:0px;padding:10px;margin:10px;background:white;">
+              <div class="text-center col-lg-4 col-md-4 col-sm-8 col-11" style="margin-left:auto;margin-right:auto">
+                <p style="font-size:90px;color:black;font-family:'Barlow Semi Condensed',sans-serif;font-weight:600;margin-bottom:0px;">01</p>
+                <hr style="margin-top:0px;">
+                <p style="font-size:12px;color:grey;">
+                  Navigate through our program & find the plan which is suitable as per you or realted to your problem.</p>
+              </div>
+              <div class="text-center col-lg-4 col-md-4 col-sm-8 col-11" style="margin-left:auto;margin-right:auto">
+                <p style="font-size:90px;color:black;font-family:'Barlow Semi Condensed',sans-serif;font-weight:600;margin-bottom:0px;">02</p>
+                <hr style="margin-top:0px;">
+                <p style="font-size:12px;color:grey;">
+                    Go to the plan to get the detailed description about the corresponding plan that you have chosen.</p>
+              </div>
+              <div class="text-center col-lg-4 col-md-4 col-sm-8 col-11" style="margin-left:auto;margin-right:auto">
+                <p style="font-size:90px;color:black;font-family:'Barlow Semi Condensed',sans-serif;font-weight:600;margin-bottom:0px;">03</p>
+                <hr style="margin-top:0px;">
+                <p style="font-size:12px;color:grey;">
+                To get enrolled in the plan choose any of the available contact options & send your details. We will revert you back soon to
+              confirm your enrollment.</p>
+              </div>
+
+            </div>
+
+
+            <div class="row">
+            {% for plan in plans %}
+            {% if plan.add_plan_to_home %}
+            <div class=" col-lg-4 col-md-5 col-sm-10 col-11"style="margin-left:auto;margin-right:auto;margin-top:20px;display:flex;flex-wrap:wrap;">
+              <div class="plancard text-center">
+                <img src="{{ plan.plan_imageURL }}" class="col-lg-8 col-md-8 col-sm-8 col-8" style="margin-bottom:10px;padding:0px;" >
+                <div  style="padding-right:10px;padding-left:10px;">
+                  <p style="font-size:16px;font-weight:400;margin-bottom:0px;
+                  font-family:Segoe UI Semibold;color:white">{{plan.plan_name}}</p>
+                  <hr color="#34495E" style="margin-top:10px;margin-bottom:10px;" >
+                  <p style="font-size:12px;color:#85929E;margin-top:0px;">{{plan.about_plan}}</p>
+                  <a  data-product="{{ plan.id }}" class="btn btn-outline-primary"style="border-radius:50px;font-size:15px;
+                font-weight:500;border-width:2px;margin-bottom:20px;"href="{% url 'view_program' plan.id %}">Go to plan <i class="bi bi-chevron-double-right"></i></a>
+               </div>
+             </div>
+            </div>
+              {% endif %}
+            {% endfor %}
+                <br>
+            </div>
+            <br>
+            <div class="text-center">
+            <a class="btn btn-outline-primary" href="{% url 'programs' %}" style="border-radius:50px;font-size: 18px;font-weight:600;">Get Started <i class="bi bi-chevron-double-right"></i></a>
+          </div><br>
+          </div>
+
+
+   </div>
+
+    <div class="col-lg-3 col-md-11 col-sm-11 col-11 coloumn2" style="margin-left:auto;margin-right:auto">
+      <div class="row">
+      <div class="joinuscard col-lg-12 col-md-7 col-sm-6 col-10" style="margin-right:auto;margin-left:auto;">
+      <div style="background:#EAF2F8;padding:20px">
+        <p style="font-size:16px;font-weight:600;margin-bottom:3px;text-align:center;
+        font-family:'Segoe UI Semibold', sans-serif">Follow us on Instagram</p>
+        <hr >
+        <div class="text-center">
+          <p style="font-size:12px;color:grey;margin-bottom:10px;">Welcome to our community, give us a chance to grow
+            our Instagram community with your valuable presence. </p>
+            <a href="https://www.instagram.com/mrinalmayank7/" >
+            <img src="{% static 'images/instaicon.png' %}"  style="height:90px;" class="instaglow2"></a>
+        </div>
+      </div>
+      <a href="https://www.instagram.com/mrinalmayank7/">
+      <img src="{% static 'images/instafeed.jpg' %}" class="col-lg-12" style="padding:0px;margin:0px;border:1px solid #E5E7E9;"></a>
+      <br><br>
+      </div>
+
+
+   <div class="col-lg-12 col-md-5 col-sm-6 col-10" style="margin-left:auto;margin-right:auto;">
+    <div class="text-center" style="background:#EBEDEF;margin-left:auto;margin-right:auto;padding:20px;width:100%;">
+        <p style="font-size:15px;font-weight:400;margin-bottom:3px;
+        font-family:Segoe UI Semibold;">Get in touch</p>
+        <p style="font-size:12px;color:#85929E;margin-bottom:1px;">Want to get enrolled in our program plans , select your preferred plan & contact us.</p>
+        <a href="{% url 'contact' %}" style="color:#34495E;font-size:40px;">
+        <p style="margin-bottom:0px;"><i class="bi bi-person-lines-fill instaglow"></i></p></a>
+    </div>
+  </div>
+
+</div>
+</div>
+</div>
+<a id="latestpostlink"></a>
+</div><br>
+
+{% for fnp in fnps %}
+  {% if forloop.counter < 2 %}
+   {% if fnp.enable_home %}
+<div class="container backdrop" style="background:rgba(255,255,255,0.2);box-shadow:0px 0px 15px 0px rgba(0,0,0,0.4);">
+  <div class="row">
+    <div class="grid1 col-lg-5  col-md-12 col-sm-12 col-12" style="margin-left:auto;margin-right:auto;background:#0B5345;display:flex;flex-wrap:wrap;">
+      <div class="innerdiv" style="width:100%;margin-right:5%;margin-left:5%;">
+        <br><br>
+        <p style="font-family:'Playfair Display', serif;font-size:30px;text-align:center;color:white;">Enroll Now</p>
+          <p style="font-size:16px;color:#A2D9CE;text-align:center;font-weight:600;"><i class="fa fa-flip-horizontal fa-pagelines" aria-hidden="true"></i> {{fnp.workshop_name}} <i class="fa fa-pagelines" aria-hidden="true"></i></p>
+          <hr style="margin:10px;border: 0;height: 1px;background-image: linear-gradient(to right, rgba(255,255,255, 0), rgba(255,255,255, 0.75), rgba(255,255,255, 0));">
+
+        <p style="font-size:12px;color:white;text-align:center;">{{fnp.workshop_caption}}</p>
+        <div class="text-center">
+        <a class="btn btn-light " href="{% url 'workshop' %}"
+          style="border-radius:50px;font-size: 13px;background:white;border:0px;margin-bottom:0px;color:black"><b>Enroll Now</b><i class="bi bi-chevron-double-right"></i></a>
+        </div>
+        <br>
+      </div>
+    </div>
+    <div class="grid2 col-lg-7 col-md-12 col-sm-12 col-12" style="margin-left:auto;margin-right:auto;">
+
+        <br>
+        <div class="text-center"style="padding:10px;background:black;box-shadow:12px 12px 30px 0px rgba(0,0,0,0.6);margin-right:5%;margin-left:5%;">
+          <div style="padding:15px;border: 1px solid #212F3C">
+          <p style="text-align:center;font-size:18px;color:white;font-family:'Barlow Semi Condensed', sans-serif;letter-spacing:5px;font-weight:600;">ABOUT THE PROGRAM</p>
+          <hr color="#212F3C" style="margin-top:0px;">
+          <p style="font-size:12px;color:white;white-space: pre-wrap;margin:8px;"><i class="bi bi-clock"></i> Program Duration : {{ fnp.workshop_duration}}</p>
+
+          <p style="font-size:12px;color:#85929E;white-space: pre-wrap;">{{ fnp.workshop_introduction}}</p>
+          <br>
+        </div>
+      </div>
+        <br>
+
+    </div>
+
+  </div>
+</div><br><br>
+{% endif %}
+{% endif %}
+{% endfor %}
+
+
+  <div class=row>
+    <div class="col-lg-9 col-md-12 col-sm-12 col-12 coloumn1" style="margin-left:auto;margin-right:auto;">
+      <div class="featured_posts backdrop" style="padding:20px;background:white;border:0px;">
+      <p style="font-size:30px;font-family:'Abril Fatface', cursive;color:black;margin-bottom:0px;text-align:center">Featured Posts</p>
+      <p style="font-size:14px;color:black;text-align:center;margin:10px;font-family:'Rasa',sans-serif;">Glimpse of my Health Blog. Discover insights on Diet, Health, Beauty, Nutrition, Ayurveda & More. Explore more on the health blog page. Please Subscribe if you like our blog to stay connected with us.</p>
+      <hr style="margin:0px;"><br>
+      <div class="row">
+          {% for tip in tips %}
+          {% if tip.add_to_home  %}
+        <div class="col-lg-4 col-md-4 col-sm-6 col-10" style="margin-top:0;margin-left:auto;margin-right:auto;display:flex;flex-wrap:wrap;">
+          <div class="flipcard">
+             <div class="flipcard-wrap">
+               <div class="card card-front">
+                  <img src="{{ tip.imageURL }}" class="card-img-top imghealthtip">
+                  <div class="card-body" style="padding:8px  10px 0px 10px;">
+                    <p style="font-size:11px;color:#484848;margin-bottom:1px;text-align:right">{{tip.posted_on}}</p>
+                    <p style="font-size:16px;font-weight:600;margin-bottom:3px;">{{tip.name}}</p>
+                    <p style="font-size:13px;color:#484848;">{{tip.caption}}</p>
+
+                  </div>
+                </div>
+                <div class="card card-back">
+                  <div class="card-body">
+                    <p style="font-size:11px;color:lightblue;margin-bottom:3px;text-align:right">By: {{tip.posted_by}}</p>
+                    <p style="white-space: pre-wrap;font-size:13px;">{{tip.introduction}}</p>
+                    {% if tip.description%}
+                    <a  data-product="{{ tip.id }}" class="btn btn-outline-primary"
+                    style="border-radius:50px;font-size:14px;"href="{% url 'read_more' tip.id %}">Read More</a>
+                    {% else %}
+                    <p> </p>
+                    {% endif %}
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+      {% endfor %}
+      </div>
+      <a id="subscribe"></a>
+      <div class="text-center">
+      <a class="btn btn-outline-primary" href="{% url 'health_blog' %}" style="border-radius:50px;font-size: 18px;font-weight:600;"><i class="fa fa-paper-plane" aria-hidden="true"></i> Explore More</a>
+      </div>
+    </div>
+    <br><br>
+
+    <div class="subscription_grid" style="padding:20px;">
+      <p style="text-align:center;margin-bottom:5px;"><img src="{% static 'images/logo1.png' %}"></p>
+      <hr color="#2C3E50" style="margin:3px;">
+        <div class="col-lg-8 col-md-9" style="margin:auto;">
+          <div class="text-center">
+          <p style="color:white;font-size:40px;margin:3px;margin-bottom:10px;font-family:'Italiana';">
+            Subscribe</p>
+          <p style="color:#D0D0D0 ;font-size:12px;margin-bottom:0px;">For all things designed, delivered to your inbox. Subscribe to us & stay updated.</p>
+          </div>
+          <hr color="#2C3E50" style="height:3px;margin-top:5px;margin-bottom:5px;">
+        <form class=""  method="POST">
+            {% csrf_token %}
+            <label for="id_name" style="font-size:16px;color:lightblue;font-weight:500;margin:0px;">Name</label>
+            <input type="text" class="form-control" id ="id_name" name="name"  style="background:transparent;border:0px;
+            border-bottom:1px solid white;border-radius:0px;font-size:14px;color:white" required>
+            <br>
+            <label for="id_email" style="font-size:16px;color:lightblue;font-weight:500;margin:0px;">Email</label>
+            <input type="email" class="form-control" id ="id_email"name="email"  style="background:transparent;border:0px;
+            border-bottom:1px solid white;border-radius:0px;font-size:14px;color:white" required>
+            <br>
+            {% for message in messages %}
+            <p style="text-align:center;color:lightgreen;font-size:13px">{{message}}</p>
+            {% endfor %}
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary" style="border-radius:50px;font-weight:500;font-size:15px;"> <i class="bi bi-bell"></i> Subscribe Me</button>
+            </div>
+            </form>
+        </div>
+   </div><br>
+
+   </div>
+
+    <div class="col-lg-3 col-md-12 col-sm-12 col-12 coloumn2" style="margin-left:auto;margin-right:auto">
+      <div class="row">
+
+      <div class="latest_post col-lg-12 col-md-7 col-sm-10 col-12" style="margin-left:auto;margin-right:auto;">
+        <div style="background:#07153C;padding:20px;margin-bottom:auto;">
+        <p style="font-size:18px;font-weight:600;margin-bottom:3px;color:white;text-align:center;
+        font-family:Segoe UI Semibold"><i class="bi bi-plus-circle-dotted"></i>  Latest Posts</p>
+        <hr color="white">
+          {% for topic in topics %}
+          {% if forloop.counter < 9 %}
+          <p style="margin-bottom:0px;"><a data-product="{{ topic.id }}" href="{% url 'read_more' topic.id %}"
+            style="font-size:13px;color:white;margin-bottom:0px;">{{topic.name}}</a></p>
+            <p style="font-size:11px;color:lightblue;margin-bottom:0px;">Posted on : {{topic.posted_on}}</p>
+            <hr color="#0A336A"style="margin-top:5px;margin-bottom:5px">
+
+        {% endif %}
+        {% endfor %}
+        <br>
+        <div class="text-center">
+          <a class="btn btn-outline-primary" href="{% url 'health_blog' %}"
+          style="border-radius:50px;font-size: 15px;font-weight:500;">View All</a>
+        </div>
+      </div><br>
+    </div>
+      <div class="feedbackhome text-center col-lg-12 col-md-5 col-sm-10 col-12" style="margin-left:auto;margin-right:auto">
+      <div style="margin-bottom:auto;padding:20px;background:white;border:1px solid #E5E7E9 ">
+        <p style="font-size:18px;margin-bottom:0px;color:black;font-family:Arial;">
+          Write to Us</p>
+        <hr style="margin-top:2px;">
+        <p style="font-size:12px;color:#515A5A">Your opinion is important to us. Feel free to drop us your feedback or suggestion to us.</p>
+        <a class="btn btn-outline-primary" href="{% url 'contact' %}#feedbackanchor" style="font-weight:600;border-radius:80px;">Your feedback <i class="bi bi-chevron-double-right"></i></a>
+      </div><br>
+
+      <div style="margin-bottom:auto;padding:10px;background:transparent;border:1px solid #D5D8DC ">
+        <div style="background:black;padding:15px;">
+          <p style="font-size:16px;color:white;text-align:center;font-weight:600;">Our Diet Approach</p>
+          <hr color="grey">
+          <div style="font-size:12px;color:#808B96;">
+            <p style="margin:5px;">100% customized Diet plans</p><hr color="#1C2833" style="margin:0px;">
+            <p style="margin:5px;">No pre-defined or fixed diets</p><hr color="#1C2833" style="margin:0px;">
+            <p style="margin:5px;">Flexibly of Food Choice</p><hr color="#1C2833" style="margin:0px;">
+            <p style="margin:5px;">Clinically Proven Diet Chart</p><hr color="#1C2833" style="margin:0px;">
+            <p style="margin:5px;">No crash dieting</p><hr color="#1C2833" style="margin:0px;">
+            <p style="margin:5px;">No any Burden of Super Food, Pills or supplements</p><hr color="#1C2833" style="margin:0px;">
+            <p style="margin:5px;">Long-term sustainable diets</p><hr color="#1C2833" style="margin:0px;">
+            <p style="margin:5px;">Habit changing diets</p>
+          </div>
+        </div>
+      </div><br>
+      </div>
+
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+    {% endblock content %}
+
+
+
+  <div style="background-color:black">
+    <div class="container">
+      <br>
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-6 col-11" style="margin-left:auto;margin-right:auto;display:flex;flex-wrap:wrap;">
+          <div class="companyinfo" style="margin-left:auto;margin-right:auto;">
+            <img src="{% static 'images/footerlogo.png'%}" alt="">
+            <hr color="#17202A">
+            <p style="color:#85929E ;font-size:12px;">We helps people to rebuild the Faith in Food and helps them connect to a better lifestyle. What all our nature gave us is the key to our health problems like weight loss, weight gain, pcos/ pcod , diabetics, thyroid etc. Nosh was started in the year 2010.We deliver one stop solution for all Health & Nutritional needs. </p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 col-11" style="margin-left:auto;margin-right:auto;display:flex;flex-wrap:wrap;">
+          <div class="contactinfo" style="margin-left:auto;margin-right:auto;">
+            <p style="font-size:16px;font-weight:400;margin-bottom:3px;
+            font-family:Segoe UI Semibold;color:white">Contact Us</p>
+            <hr color="#17202A" style="margin-top:8px;margin-bottom:8px;">
+            <p style="font-size:12px;color:#85929E;">Nosh Health and Dietetics Firm, Upper Bazar, Near Trade Center, Ranchi, Jharkhand - 834001 </p>
+            <p style="font-size:12px;"><a href="https://api.whatsapp.com/send/?phone=+917858832086&text=Hello" style="color:#85929E;"><i class="bi bi-telephone" style="font-size:18px;"></i> +917858832086</a></p>
+            <p style="font-size:12px;"><a href="mailto:nosh.beta.version@gmail.com" style="color:#85929E;"><i class="bi bi-envelope" style="font-size:18px;"></i> nosh.beta.version@gmail.com</a></p>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-6 col-6" style="margin-left:auto;margin-right:auto;display:flex;flex-wrap:wrap;">
+          <div class="information" style="margin-left:auto;margin-right:auto;">
+            <p style="font-size:16px;font-weight:400;margin-bottom:3px;
+            font-family:Segoe UI Semibold;color:white">Information</p>
+            <hr color="#17202A " style="margin-top:8px;margin-bottom:8px;">
+            <p style="font-size:12px;margin:2px;"><a href="{% url 'about' %}" style="color:#D6DBDF;">About Us</a></p>
+            <p style="font-size:12px;margin:2px;"><a href="{% url 'programs' %}" style="color:#D6DBDF;">Our Program</a></p>
+            <p style="font-size:12px;margin:2px;"><a href="{% url 'health_blog' %}" style="color:#D6DBDF;">Health Blog</a></p>
+            <p style="font-size:12px;margin:2px;"><a href="{% url 'home' %}#latestpostlink" style="color:#D6DBDF;">Latest Posts</a></p>
+            <p style="font-size:12px;margin:2px;"><a href="{% url 'product' %}" style="color:#D6DBDF;">Products</a></p>
+            <p style="font-size:12px;margin:2px;"><a href="{% url 'workshop' %}" style="color:#D6DBDF;">Workshop</a></p>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-6 col-6" style="margin-left:auto;margin-right:auto;display:flex;flex-wrap:wrap;">
+          <div class="quicklinks" style="margin-left:auto;margin-right:auto;">
+            <p style="font-size:16px;font-weight:400;margin-bottom:3px;
+            font-family:Segoe UI Semibold;color:white">Quick Links</p>
+            <hr color="#17202A " style="margin-top:8px;margin-bottom:8px;">
+            <p style="font-size:12px;margin:2px;"><a href="{% url 'home' %}" style="color:#D6DBDF;">Home</a></p>
+            <p style="font-size:12px;margin:2px;"><a href="{% url 'user_login' %}" style="color:#D6DBDF;">Log in</a></p>
+            <p style="font-size:12px;margin:2px;"><a href="{% url 'register' %}" style="color:#D6DBDF;">Sign up</a></p>
+            <p style="font-size:12px;margin:2px;"><a href="{% url 'home' %}#subscribe" style="color:#D6DBDF;">Subscribe</a></p>
+            <p style="font-size:12px;margin:2px;"><a href="{% url 'contact' %}#feedbackanchor" style="color:#D6DBDF;">Feedback</a></p>
+
+          </div>
+        </div>
+      </div>
+      <hr color="#2E4053" style="margin-bottom:2px;">
+      <div class="developerandprivacy text-center" style="margin-bottom:8px;">
+        <label style="font-size:13px;padding-left:10px;padding-right:10px;"><a href="{% url 'developer' %}" >Developer info</a></label>
+        <label style="font-size:13px;padding-left:10px;padding-right:10px;"><a href="{% url 'privacy' %}" >Privacy Policy & Terms of use</a></label>
+
+      </div>
+      <div class="icons text-center">
+        <label ><a href="https://www.instagram.com/mrinalmayank7/"><i class="bi bi-instagram"
+        style="margin:7px;font-size:20px;"></i></a></label>
+        <label ><a href="https://www.linkedin.com/in/mrinal-mayank-bb3112200/"><i class="bi bi-linkedin"
+        style="margin:7px;font-size:20px;"></i></a></label>
+        <label ><a href="https://github.com/mrinalmayank7/"><i class="bi bi-github"
+        style="margin:7px;font-size:21px;"></i></a></label>
+      </div>
+      <div class="copyright text-center">
+      <p style="margin:0px;padding-bottom:15px;color:#34495E;font-size:13px;">© 2021 Mrinal Mayank - All rights reserved</p>
+      </div>
+    </div>
+  </div>
+
+  <style media="screen">
+    .backdrop{
+      backdrop-filter:blur(5px);
+    }
+  </style>
+    <script type="text/javascript" src="{% static 'jscript/vanilla-tilt.js' %}"></script>
+    <script type="text/javascript" src="{% static 'jscript/particles.js' %}"></script>
+    <script type="text/javascript" src="{% static 'jscript/app.js' %}"></script>
+    <script type="text/javascript" src="{% static 'jscript/jmain.js' %}"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js" integrity="sha512-CEiA+78TpP9KAIPzqBvxUv8hy41jyI3f2uHi7DGp/Y/Ka973qgSdybNegWFciqh6GrN2UePx2KkflnQUbUhNIA==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js" integrity="sha512-d8F1J2kyiRowBB/8/pAWsqUl0wSEOkG5KATkVV4slfblq9VRQ6MyDZVxWl2tWd+mPhuCbpTB4M7uU/x9FlgQ9Q==" crossorigin="anonymous"></script>
+<script >
+   $('.counter').counterUp({
+     delay: 10,
+     time: 4000
+ });
+
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+  </body>
+</html>

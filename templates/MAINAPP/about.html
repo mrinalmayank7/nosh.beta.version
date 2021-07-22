@@ -1,0 +1,78 @@
+{%  extends 'MAINAPP/home.html' %}
+{% load static %}
+{% block content %}
+<div class ="bground2" style="margin-left:auto;margin-right:auto;">
+  <br><br><br><br><br>
+    <p style="color:black;font-size:25px;font-family:'Barlow Semi Condensed', sans-serif;text-align:center;letter-spacing:8px;font-weight:600;">ABOUT US</p>
+    <div class="container backdrop" style="background:rgba(255,255,255,0.2);box-shadow:0px 0px 15px 0px rgba(0,0,0,0.2);padding:40px;">
+      <div class="row">
+
+        <div class="grid2 col-lg-12 col-md-12 col-sm-12 col-12" style="padding:15px;margin-left:auto;margin-right:auto;">
+            <p style="text-align:center;margin-bottom:5px;"><img src="{% static 'images/navlogo.png' %}"></p>
+            <hr>
+            <p style="font-size:16px;color:black;text-align:center;font-weight:700;"><i class="fa fa-flip-horizontal fa-pagelines" aria-hidden="true"></i>  Healthier Choices for a Healthier You <i class="fa fa-pagelines" aria-hidden="true"></i></p>
+
+            <p style="text-align:center;font-size:12px;color:#282828 ;padding-right:5%;padding-left:5%;">We helps people to rebuild the Faith in Food and helps them connect to a better lifestyle. What all our nature gaves us is the key to our health problems like weight loss, weight gain, pcos/ pcod , diabetics, thyroid etc.</p>
+          <div class=" col-lg-12 col-md-12 col-sm-12 col-12"style="margin-left:auto;margin-right:auto;display:flex;flex-wrap:wrap;">
+            <div class="row" style="border:0px;padding:5%;background:white;box-shadow:12px 12px 30px 0px rgba(0,0,0,0.2)">
+              <div class="text-center col-lg-6 col-md-6 col-sm-11 col-11" style="margin-left:auto;margin-right:auto">
+                <p style="font-size:16px;color:black;font-family:'Barlow Semi Condensed',sans-serif;font-weight:600;letter-spacing:5px;">WHO WE ARE</p>
+                <hr style="margin-top:0px;">
+                <p style="font-size:12px;color:grey;">
+                  Nosh is a health & nutrition organization started in the year 2010. By understanding your health goals we will guide you through manageable dietary and lifestyle changes to optimise your health and help you feel amazing every day.The vision of this venture was to help people built faith in food. </p>
+              </div>
+              <div class="text-center col-lg-6 col-md-6 col-sm-11 col-11" style="margin-left:auto;margin-right:auto">
+                <p style="font-size:16px;color:black;font-family:'Barlow Semi Condensed',sans-serif;font-weight:600;letter-spacing:5px;">WHY WITH US</p>
+                <hr style="margin-top:0px;">
+                <p style="font-size:12px;color:grey;">
+                We deliver one stop solution for all Health & Nutritional needs. Our goal is to make it easier for everyone around her to eat right and well and get more habituated to a healthy lifestyle. We provide you 100% customized Diet plans, workout routine as per your body requirements, weekly monitoring & much more based on your selected plan.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="grid3 col-lg-3 col-md-12 col-sm-12 col-12" style="margin-left:auto;margin-right:auto;">
+            <div style="padding:20px;background:white;box-shadow:12px 12px 30px 0px rgba(0,0,0,0.2);">
+                <p style="font-size:15px;color:black;font-weight:700;
+                text-align:center;">Our Diet Approach</p>
+                <hr style="margin-top:0px;">
+
+                <p style="font-size:12px;color:grey;margin:5px;"><i class="bi bi-check2-all"></i> 100% customized Diet plans</p>
+	             	<p style="font-size:12px;color:grey;margin:5px;"><i class="bi bi-check2-all"></i> No pre-defined or fixed diets</p>
+	             	<p style="font-size:12px;color:grey;margin:5px;"><i class="bi bi-check2-all"></i> Flexibly of Food Choice</p>
+	             	<p style="font-size:12px;color:grey;margin:5px;"><i class="bi bi-check2-all"></i> Clinically Proven Diet Chart</p>
+	             	<p style="font-size:12px;color:grey;margin:5px;"><i class="bi bi-check2-all"></i> No crash dieting</p>
+	             	<p style="font-size:12px;color:grey;margin:5px;"><i class="bi bi-check2-all"></i> No any Burden of Super Food, Pills or supplements</p>
+	             	<p style="font-size:12px;color:grey;margin:5px;"><i class="bi bi-check2-all"></i> Long-term sustainable diets</p>
+	             	<p style="font-size:12px;color:grey;margin:5px;"><i class="bi bi-check2-all"></i> Habit changing diets</p>
+          </div><br>
+        </div>
+
+        <div class="grid4 col-lg-9 col-md-12 col-sm-12 col-12" style="margin-left:auto;margin-right:auto;display:flex;flex-wrap:wrap;">
+            <div style="padding:20px;background:rgba(255,255,255,0.4);box-shadow:0px 0px 30px 0px rgba(0,0,0,0.2);width:100%;">
+              <p style="font-size:16px;color:black;font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;letter-spacing:5px;text-align:center;">CALL THE RIGHT DECISION</p>
+              <hr>
+              <p style="text-align:center;font-size:12px;color:#626567 ;padding-right:5%;padding-left:5%;">Let's begin your healthiest journey together. You’re not alone and help is at your hand. Providing nutrition and healthy lifestyle consultations to help you live life to the fullest.</p>
+
+
+              <div class="counters">
+                   <div class="row">
+                     {% for stat in stats %}
+                    <div class="col-lg-2 col-md-2 col-sm-4 col-12 counterdiv" style="margin-left:auto;margin-right:auto;
+                    text-align:center;">
+                      <div class="" style="font-family:'Barlow Semi Condensed', sans-serif;font-size:30px;font-weight:700;color:black;">{{stat.count}}</div>
+                      <p style="font-size:13px;color:black;">{{stat.label}}</p>
+                    </div>
+                    {% endfor %}
+                  </div>
+                </div>
+
+          </div>
+        </div>
+
+    </div>
+  </div><br><br>
+</div>
+
+{% endblock content %}

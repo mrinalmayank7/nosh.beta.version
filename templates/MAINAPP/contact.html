@@ -1,0 +1,107 @@
+{%  extends 'MAINAPP/home.html' %}
+{% load static %}
+{% block content %}
+<div class ="bground1">
+<div class ="backdrop">
+<br><br><br><br><br><br>
+<div class="container ">
+<div class="col-lg-10 col-md-12 col-sm-12 col-11 contactgrid1" style="padding:20px;">
+  <p style="text-align:center;margin-bottom:5px;"><img src="{% static 'images/navlogo.png' %}"></p>
+  <hr style="margin-bottom:2px;margin-top:5px;">
+  <p style="font-size:30px;margin-bottom:0px;text-align:center;color:black;font-family:'Playfair Display', serif;">
+    Contact Us</p>
+
+  <p style="font-size:14px;text-align:center;color:black;font-family:'Rasa',sans-serif;">We'd love to hear from you. How can we help ?</p>
+
+<div class="row">
+  <div class="col-lg-4 col-md-4 col-sm-10 col-11" style="margin-left:auto;margin-right:auto;margin-top:0px;margin-bottom:10px;display:flex;flex-wrap:wrap;">
+    <div class="contactcard " style="padding:15px;width:100%;">
+        <div class="text-center">
+          <p style="font-size:15px;font-weight:400;margin-bottom:3px;
+          font-family:Segoe UI Semibold;color:white">Chat with us</p>
+        <hr color="#34495E" style="margin-top:5px;" >
+        <p style="font-size:12px;color:#85929E;margin-bottom:1px;">Get connected with us on whatsapp. Click below to message us.</p>
+        <a href="https://api.whatsapp.com/send/?phone=+917858832086&text=Hello" style="color:#34495E;font-size:50px;">
+        <p style="margin-bottom:0px;"><i class="bi bi-whatsapp glow"></i></p>
+        </a>
+      </div>
+    </div>
+  </div>
+
+ <div class="col-lg-4 col-md-4 col-sm-10 col-11" style="margin-left:auto;margin-right:auto;margin-top:0px;margin-bottom:10px;display:flex;flex-wrap:wrap;">
+  <div class="contactcard " style="padding:15px;width:100%;">
+      <div class="text-center">
+        <p style="font-size:15px;font-weight:400;margin-bottom:3px;
+        font-family:Segoe UI Semibold;color:white">Email</p>
+      <hr color="#34495E" style="margin-top:5px;" >
+      <p style="font-size:12px;color:#85929E;margin-bottom:1px;">Drop us an email. We will contact you soon. Click below to mail.</p>
+      <a href="mailto:nosh.beta.version@gmail.com" style="color:#34495E;font-size:50px;">
+      <p style="margin-bottom:0px;"><i class="bi bi-envelope glow"></i></p>
+      </a>
+    </div>
+  </div>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-10 col-11" style="margin-left:auto;margin-right:auto;margin-top:0px;margin-bottom:10px;display:flex;flex-wrap:wrap;">
+ <div class="contactcard " style="padding:15px;width:100%;">
+     <div class="text-center">
+       <p style="font-size:15px;font-weight:400;margin-bottom:3px;
+       font-family:Segoe UI Semibold;color:white">Find us</p>
+     <hr color="#34495E" style="margin-top:5px;margin-bottom:5px;">
+     <p  style="color:#34495E;font-size:40px;margin:1px;"><i class="bi bi-geo-alt-fill"></i></p>
+
+     <p style="font-size:12px;color:#85929E;">Nosh Health and Dietetics Firm, Upper Bazar, Near Trade Center, Ranchi, Jharkhand - 834001 </p>
+
+   </div>
+ </div>
+</div>
+<a id="feedbackanchor"></a>
+</div>
+</div>
+<br><br>
+<div class="col-lg-10 col-md-12 col-sm-12 col-11"  style="margin-left:auto;margin-right:auto;" >
+  <div class="row">
+
+  <div class="feedbackgrid col-lg-5 col-md-6 col-sm-12 col-12" style="margin-bottom:10px;padding:20px;">
+    <p style="font-size:20px;margin-bottom:0px;text-align:center;color:black;font-weight:600">Your feedback</p>
+    <hr style="margin-bottom:2px;">
+    <p style="font-size:14px;text-align:center;color:black;margin:0px;font-family:'Rasa',sans-serif;">
+      Your opinion is important to us. Feel free to drop us your feedback or suggestion to us.</p>
+  <form class=""  method="POST">
+      {% csrf_token %}
+      <label for="id_reviewer_name" style="font-size:14px;font-weight:500;margin:0px;color:black;">Name</label>
+      <input type="text" class="form-control" id ="id_reviewer_name" name="reviewer_name"  style="background:transparent;border:0px;
+      border-bottom:1px solid #AEB6BF ;border-radius:0px;font-size:14px;" required>
+      <br>
+      <label for="id_reviewer_email" style="font-size:14px;font-weight:500;margin:0px;color:black;">Email</label>
+      <input type="email" class="form-control" id ="id_reviewer_email"name="reviewer_email"  style="background:transparent;border:0px;
+      border-bottom:1px solid #AEB6BF ;border-radius:0px;font-size:14px;" required>
+      <br>
+      <label for="id_reviewer_message" style="font-size:14px;font-weight:500;margin:0px;color:black;">Message</label><br>
+      <div class="text-center">
+      <textarea class="form-control" name="reviewer_message"  id="id_reviewer_message" placeholder="Write your comments here."style="border:1px solid #D7DBDD;
+      border-radius:5px;width:100%;height:100px;font-size:12px;padding:5px;resize: none;"></textarea>
+      </div>
+      <br>
+      {% for message in messages %}
+      <p style="text-align:center;color:green;font-size:13px">{{message}}</p>
+      {% endfor %}
+      <div class="text-center">
+        <button type="submit" class="btn btn-outline-primary" style="border-radius:50px;font-weight:500;font-size:15px;">Submit Feedback</button>
+      </div>
+      </form>
+  </div>
+  <div class="col-lg-7 col-md-6 col-sm-12 col-12"
+  style="margin-left:auto;margin-right:auto;display:flex;flex-wrap:wrap;">
+    <div class="" style="width:100%;">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14649.79079494027!2d85.3099341724358!3d23.372015903577772!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f4e11cb3a9bda7%3A0xfc8150adea945a15!2sUpper%20Bazar%2C%20Ranchi%2C%20Jharkhand%20834001!5e0!3m2!1sen!2sin!4v1626940915123!5m2!1sen!2sin"
+      width="100%" height="350px" style="border:0;border-radius:10px;box-shadow:0px 0px 15px 0px rgba(0, 0, 0,0.2);" allowfullscreen="" loading="lazy"></iframe>
+  </div>
+  </div>
+</div>
+
+</div><br>
+</div>
+</div>
+</div>
+
+{% endblock content %}

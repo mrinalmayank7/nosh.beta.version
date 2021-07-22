@@ -1,0 +1,270 @@
+
+body{
+  padding: 0;
+  margin: 0;
+}
+
+.signgrid{
+  padding:30px;
+  margin-top:150px;
+  margin-bottom:100px;
+  background:rgba(255,255,255,0.8);
+  border-radius:10px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.navbar-light .navbar-nav .nav-item .navbttn :hover{
+  color: #095DFF ;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+}
+
+.bground2{
+  background-image:url('/static/images/bg2.jpg');
+}
+.bground1{
+  background-image: linear-gradient(180deg ,transparent 40% ,rgba(255,255,255,0.8) 65% ,white 80% ),url('/static/images/bg1.jpg');
+}
+.contactblur{
+  background:rgba(0,0,0,0.1);
+}
+.coverblur{
+  background:rgba(0,0,0,0.1);
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height:100%;
+  width:100%;
+}
+
+ .home1 ,#particles-js ,.bground1,.bground2 ,.contactblur{
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height:100%;
+  width:100%;
+}
+
+ .contactgrid1 ,.feedbackgrid{
+  background:rgba(255,255,255,0.65);
+  border-radius:10px;
+  margin-left:auto;
+  margin-right:auto;
+}
+.homegrid1,.whatsappcard ,.featured_posts ,.intropara ,.slider
+,.contactgrid1 ,.feedbackgrid , .contactcard ,.signgrid ,.programcards ,.blog_description {
+  box-shadow:0px 0px 20px 0px rgba(0, 0, 0,0.25);
+  border-bottom:1px solid rgba(255,255,255,0.8);
+  border-right:1px solid rgba(255,255,255,0.8);
+}
+
+ .plancard{
+  box-shadow:15px 15px 25px 0px rgba(0, 0, 0,0.5);
+  border-bottom:1px solid rgba(255,255,255,0.7);
+  border-right:1px solid rgba(255,255,255,0.7);
+  background:#1C2833;
+  border-radius:12px;
+  width:100%;
+}
+
+.contactcard  ,.whatsappcard ,.subscription_grid{
+  background:#1C2833;
+  border-radius:10px;
+  box-shadow:0px 0px 15px 0px rgba(0, 0, 0,0.3);
+}
+
+#id_name:focus ,#id_email:focus , #id_reviewer_name:focus ,
+#id_reviewer_email:focus ,#id_reviewer_message:focus ,#id_participant_name:focus ,
+#id_participant_email:focus ,#id_participant_phone:focus ,.searchbar:focus{
+  box-shadow:none;
+}
+
+
+.instaglow:hover{
+  color: #095DFF ;
+  text-shadow: 0 0 10px #09D6FF ;
+}
+.instaglow2:hover{
+  background: transparent;
+  border-radius:27px;
+  box-shadow:0px 0px 15px 1px #C133FF;
+}
+
+.healthblogclass ,.our_programspage, .bground1 , .bground2 ,.devpage{
+  animation: fadeInAnimation ease 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.glow:hover{
+  color: white ;
+  text-shadow: 0 0 14px white ;
+}
+
+.flipcard .card-back {
+    box-shadow:0px 0px 15px 0px rgba(0, 0, 0,0.3);
+    border-radius:5px;
+    border:0px;
+}
+
+.flipcard {
+  perspective: 1000px;
+  margin-bottom: 1.5rem;
+}
+.flipcard .flipcard-wrap {
+  position: relative;
+  width: 100%;
+  height:100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+
+
+}
+.flipcard .card-front,
+.flipcard .card-back {
+  width: 100%;
+  height:100%;
+  position: relative;
+  backface-visibility: hidden;
+  transition: all .3s;
+  border-radius:5px;
+}
+.flipcard .card-front {
+  z-index: 2;
+  border:0px;
+  background:transparent;
+}
+.flipcard .card-front::after {
+  content: "";
+  display: block;
+  width: 0;
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+}
+.flipcard .card-back {
+  position: absolute;
+  top: 0;
+  text-align: left;
+  z-index: 1;
+  transform: rotateY(180deg);
+  overflow-y: auto;
+  background:#1C2833;
+  color:white;
+}
+/* the flippy magic */
+.flipcard:hover .flipcard-wrap {
+  transform: rotateY(-180deg);
+}
+
+.slider{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding: 0;
+}
+.slides{
+  width: 500%;
+  height: 400px;
+  display: flex;
+}
+.slides input{
+  display: none;
+}
+.slide{
+  width: 20%;
+  transition: 1.2s;
+  position:relative;
+}
+.slide img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position:absolute;
+}
+
+.slidetext1{
+  position:absolute;
+  margin-left:auto;
+  margin-right:auto;
+  left: 50%;
+  transform: translate(-50% ,10%)
+}
+.slidetext2{
+  position:absolute;
+  margin-left:auto;
+  margin-right:auto;
+  left: 50%;
+  transform: translate(-50% ,10%)
+}
+
+.slidetext3{
+  position:absolute;
+  margin-left:auto;
+  margin-right:auto;
+  transform: translate(10% ,20%)
+}
+.navigation-manual {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: -40px;
+}
+
+.navigation-auto{
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 360px;
+}
+/*css for manual slide navigation*/
+.manual-btn{
+  border: 3px solid white;
+  padding: 5px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 1s;
+}
+.manual-btn:not(:last-child){
+  margin-right: 40px;
+}
+.manual-btn:hover{
+  background:white;
+}
+
+#radio1:checked ~ .first{
+  margin-left: 0;
+}
+#radio2:checked ~ .first{
+  margin-left: -20%;
+}
+#radio3:checked ~ .first{
+  margin-left: -40%;
+}
+
+/*css for automatic navigation*/
+.navigation-auto div{
+  border: 3px solid white;
+  padding: 5px;
+  border-radius: 12px;
+  transition: 1s;
+}
+.navigation-auto div:not(:last-child){
+  margin-right: 40px;
+}
+#radio1:checked ~ .navigation-auto .auto-btn1 ,
+#radio2:checked ~ .navigation-auto .auto-btn2 ,
+#radio3:checked ~ .navigation-auto .auto-btn3{
+  background: white;
+}

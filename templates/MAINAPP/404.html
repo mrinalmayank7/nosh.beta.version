@@ -1,0 +1,16 @@
+{%  extends 'MAINAPP/home.html' %}
+{% load static %}
+{% block content %}
+<br><br><br><br><br>
+<div class="container">
+<div class="col-lg-6 col-md-8 col-sm-10 col-11 text-center" style="margin-left:auto;margin-right:auto;">
+  <p style="font-family:'Barlow Semi Condensed', sans-serif;font-size:120px;">404</p>
+  <img src="{% static 'images/sad.png' %}" class="col-lg-4 col-md-4 col-sm-5 col-5"alt="">
+<p style="font-size:22px;color:black;font-weight:600;">Uh oh! Page not found...</p>
+<p style="font-size:14px;color:grey;">Sorry , the page you are looking for does not exist. Try again with a valid URL name or head back to home.</p>
+<a class="btn btn-dark" href="{% url 'home' %}"
+style="font-weight:600;border-radius:80px;font-size:16px;background:black;">Home <i class="bi bi-chevron-double-right"></i></a>
+</div>
+<br><br>
+</div>
+{% endblock content %}

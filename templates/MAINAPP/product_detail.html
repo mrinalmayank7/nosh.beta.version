@@ -1,0 +1,47 @@
+{%  extends 'MAINAPP/home.html' %}
+{% load static %}
+{% block content %}
+<div class="bground2">
+<div class="backdrop">
+<br><br><br><br><br>
+<p style="text-align:center;margin-bottom:5px;"><img src="{% static 'images/navlogo.png' %}"></p>
+<br>
+
+<div class="container">
+<div class="col-lg-12 col-md-12 col-sm-12 col-12" style="margin-right:auto;margin-left:auto;background:rgba(255,255,255,0.2);box-shadow:0px 0px 15px 0px rgba(0,0,0,0.2);padding:4%;">
+        <p style="font-family:'Playfair Display', serif;font-size:30px;text-align:center;color:black;">OUR PRODUCTS</p>
+        <p style="font-size:12px;color:black;text-align:center;">Get valued health products from us. Make the right choice today, contact us to order.</p>
+        <p style="font-size:16px;color:black;text-align:center;font-weight:700;"><i class="fa fa-flip-horizontal fa-pagelines" aria-hidden="true"></i>  Healthier Choices for a Healthier You <i class="fa fa-pagelines" aria-hidden="true"></i></p>
+
+        <hr>
+        <div class="row">
+          <div class="col-lg-5 col-md-8 col-sm-12 col-12" style="margin-left:auto;margin-right:auto;display:flex;flex-wrap:wrap;">
+          <div class="" style="width:100%;padding:20px;">
+          <img src="{{items.product_imageURL}}" style="width:100%;box-shadow:0px 0px 15px 0px rgba(0,0,0,0.2);">
+          <br>
+          <p style="font-size:15px;color:black;margin-top:20px;margin-bottom:5px;font-weight:700;">₹ {{items.product_price}}</p>
+          <p style="white-space: pre-wrap;font-size:12px;font-family:'Segoe UI', sans-serif;color:#303030 ;margin-top:0px;">{{items.product_caption}}</p>
+          <hr>
+          <p style="font-size:12px;color:black;white-space: pre-wrap;"><label style="font-weight:700;color:black;font-size:13px;" >Colors </label><br>{{items.product_colors_available}}</p>
+        </div>
+       </div>
+        <div class="col-lg-7 col-md-10 col-sm-12 col-12" style="margin-left:auto;margin-right:auto;display:flex;flex-wrap:wrap;">
+        <div class="" style="width:100%;background:white;padding:20px;box-shadow:0px 0px 15px 0px rgba(0,0,0,0.2);">
+        <p style="font-size:30px;font-family:'Abril Fatface', cursive;color:black;margin-bottom:0px;text-align:center">{{ items.product_name}}</p>
+        <hr>
+        <p style="white-space: pre-wrap;font-size:12px;font-family:'Segoe UI', sans-serif;color:#303030 ;">{{items.product_introduction}}</p>
+        <p style="white-space: pre-wrap;font-size:16px;font-family:'Segoe UI', sans-serif;color:black;font-weight:700;">{{items.product_sub_heading}}</p>
+        <p style="white-space: pre-wrap;font-size:12px;font-family:'Segoe UI', sans-serif;color:#303030 ;">{{items.product_sub_body}}</p>
+        <p style="white-space: pre-wrap;font-size:12px;font-family:'Segoe UI', sans-serif;color:#0B5345;">{{items.product_conclusion}}</p>
+      </div>
+     </div>
+    </div>
+
+
+
+</div><br>
+</div>
+</div>
+</div>
+
+{% endblock content %}

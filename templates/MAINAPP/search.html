@@ -1,0 +1,432 @@
+{%  extends 'MAINAPP/home.html' %}
+{% load static %}
+
+{% block content %}
+
+<br><br><br><br><br>
+
+<div class="container">
+
+ {% if query|length < 1 %}
+ <div class="" style="background:#FFF6AD ;">
+     <p style="font-size:16px;text-align:center;padding:10px;font-weight:500;color:#641E16 ">No Search Results</p>
+ </div>
+    <div class="container" style="height:100vh;">
+    <p style="font-size:35px;">Oop's ! <i class="bi bi-emoji-frown"></i></p>
+    <p style="font-size:14px;">We are sorry. the search query <b>{{query}}</b> you requested could not be found.</p>
+    <div class="" style="font-size:13px;color:grey;">
+    <p>Follow these suggestions & try again.</p>
+    <ul>
+       <li>Make sure all words or queries are correct.</li>
+       <li>Try to search different keywords.</li>
+       <li>Try to search with fewer keywords.</li>
+   </ul>
+   </div>
+   </div>
+{% elif tips|length < 1 and plans|length < 1 and items|length < 1 %}
+<div class="" style="background:#FFF6AD ;">
+    <p style="font-size:16px;text-align:center;padding:10px;font-weight:500;color:#641E16 ">No Search Results</p>
+</div>
+
+<div class="container" style="height:100vh;">
+<p style="font-size:35px;">Oop's ! <i class="bi bi-emoji-frown"></i></p>
+<p style="font-size:14px;">We are sorry. the search query <b>{{query}}</b> you requested could not be found.</p>
+<div class="" style="font-size:13px;color:grey;">
+<p>Follow these suggestions & try again.</p>
+<ul>
+   <li>Make sure all words or queries are correct.</li>
+   <li>Try to search different keywords.</li>
+   <li>Try to search with fewer keywords.</li>
+</ul>
+</div>
+</div>
+
+ {% elif tips|length < 1 and items|length < 1 %}
+ <div class="" style="background:#EAF2F8;">
+     <p style="font-size:18px;text-align:center;padding:10px;font-weight:500;">Search Results</p>
+ </div>
+
+ <p style="text-align:center;font-size:24px;font-family:'Barlow Semi Condensed',sans-serif;letter-spacing:5px;">PROGRAM</p>
+ <hr>
+   <div class="row">
+   {% for plan in plans %}
+   <div class=" col-lg-3 col-md-4 col-sm-6 col-10"style="margin-left:auto;margin-right:auto;margin-top:20px;display:flex;flex-wrap:wrap;">
+     <div class="plancard text-center">
+       <img src="{{ plan.plan_imageURL }}" class="col-lg-8 col-md-8 col-sm-8 col-8" style="margin-bottom:10px;padding:0px;" >
+       <div  style="padding-right:10px;padding-left:10px;">
+         <p style="font-size:16px;font-weight:400;margin-bottom:0px;
+         font-family:Segoe UI Semibold;color:white">{{plan.plan_name}}</p>
+         <hr color="#34495E" style="margin-top:10px;margin-bottom:10px;" >
+         <p style="font-size:12px;color:#85929E;margin-top:0px;">{{plan.about_plan}}</p>
+         <a  data-product="{{ plan.id }}" class="btn btn-outline-primary"style="border-radius:50px;font-size:15px;
+       font-weight:500;border-width:2px;margin-bottom:20px;"href="{% url 'view_program' plan.id %}">Go to plan <i class="bi bi-caret-right-fill"></i></a>
+      </div>
+    </div>
+   </div>
+   {% endfor %}
+       <br>
+   </div>
+
+  {% elif plans|length < 1 and items|length < 1 %}
+  <div class="" style="background:#EAF2F8;">
+      <p style="font-size:18px;text-align:center;padding:10px;font-weight:500;">Search Results</p>
+  </div>
+
+   <p style="text-align:center;font-size:24px;font-family:'Barlow Semi Condensed',sans-serif;letter-spacing:5px;">POSTS</p>
+   <hr>
+     <div class="row">
+         {% for tip in tips %}
+       <div class="col-lg-3 col-md-4 col-sm-6 col-10" style="margin-top:0;margin-left:auto;margin-right:auto;display:flex;flex-wrap:wrap;">
+         <div class="flipcard">
+            <div class="flipcard-wrap">
+              <div class="card card-front">
+                 <img src="{{ tip.imageURL }}" class="card-img-top imghealthtip">
+                 <div class="card-body" style="padding:8px  10px 0px 10px;">
+                   <p style="font-size:11px;color:grey;margin-bottom:1px;text-align:right">{{tip.posted_on}}</p>
+                   <p style="font-size:16px;font-weight:600;margin-bottom:3px;">{{tip.name}}</p>
+                   <p style="font-size:13px;color:grey;">{{tip.caption}}</p>
+
+                 </div>
+               </div>
+               <div class="card card-back">
+                 <div class="card-body">
+                   <p style="font-size:11px;color:lightblue;margin-bottom:3px;text-align:right">By: {{tip.posted_by}}</p>
+                   <p style="white-space: pre-wrap;font-size:13px;">{{tip.introduction}}</p>
+                   {% if tip.description%}
+                   <a  data-product="{{ tip.id }}" class="btn btn-outline-primary"
+                   style="border-radius:50px;font-size:14px;"href="{% url 'read_more' tip.id %}">Read More</a>
+                   {% else %}
+                   <p> </p>
+                   {% endif %}
+                 </div>
+               </div>
+           </div>
+         </div>
+       </div>
+     {% endfor %}
+     </div>
+
+{% elif plans|length < 1 and tips|length < 1 %}
+<div class="" style="background:#EAF2F8;">
+    <p style="font-size:18px;text-align:center;padding:10px;font-weight:500;">Search Results</p>
+</div>
+
+<p style="text-align:center;font-size:24px;font-family:'Barlow Semi Condensed',sans-serif;letter-spacing:5px;">PRODUCTS</p>
+<hr>
+<div class="row">
+{% for item in items %}
+  <div class="col-lg-4 col-md-6 col-sm-11 col-11" style="margin-left:auto;margin-right:auto;margin-top:20px;display:flex;flex-wrap:wrap;padding:10px;">
+    <div class="innerdiv" style="width:100%;background:white;box-shadow:0px 0px 15px 0px rgba(0,0,0,0.3);padding:20px;">
+        <p style="font-size:15px;color:black;font-weight:700;text-align:center;">{{item.product_name}}</p>
+
+        <div class="col-lg-11 col-md-12 col-sm-12 col-12" style="margin-left:auto;margin-right:auto;">
+          <div style="padding:10px;border:1px solid #D7DBDD;" data-tilt>
+          <img src="{{item.product_imageURL}}" style="width:100%;">
+          </div>
+          <br>
+          <p style="font-size:13px;color:black;margin-top:0px;margin-bottom:5px;">₹ {{item.product_price}}</p>
+          <p style="font-size:12px;color:grey;white-space: pre-wrap;">{{item.product_caption}}</p>
+          <hr style="margin-top:0px;">
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+            <p style="font-size:12px;color:grey;white-space: pre-wrap;"><label style="font-weight:600;color:black;font-size:13px;" >Colors </label><br>{{item.product_colors_available}}</p>
+            </div>
+            <div class="text-right col-lg-6 col-md-6 col-sm-6 col-6">
+              <a data-product="{{ item.id }}" class="btn btn-outline-primary" href="{% url 'product_detail' item.id %}" style="font-weight:600;border-radius:80px;border-width:0px;font-size:14px;">View <i class="bi bi-chevron-double-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+{% endfor %}
+<br>
+</div>
+
+{% elif tips|length < 1 %}
+<div class="" style="background:#EAF2F8;">
+    <p style="font-size:18px;text-align:center;padding:10px;font-weight:500;">Search Results</p>
+</div>
+
+<p style="text-align:center;font-size:24px;font-family:'Barlow Semi Condensed',sans-serif;letter-spacing:5px;">PROGRAM</p>
+<hr>
+  <div class="row">
+  {% for plan in plans %}
+  <div class=" col-lg-3 col-md-4 col-sm-6 col-10"style="margin-left:auto;margin-right:auto;margin-top:20px;display:flex;flex-wrap:wrap;">
+    <div class="plancard text-center">
+      <img src="{{ plan.plan_imageURL }}" class="col-lg-8 col-md-8 col-sm-8 col-8" style="margin-bottom:10px;padding:0px;" >
+      <div  style="padding-right:10px;padding-left:10px;">
+        <p style="font-size:16px;font-weight:400;margin-bottom:0px;
+        font-family:Segoe UI Semibold;color:white">{{plan.plan_name}}</p>
+        <hr color="#34495E" style="margin-top:10px;margin-bottom:10px;" >
+        <p style="font-size:12px;color:#85929E;margin-top:0px;">{{plan.about_plan}}</p>
+        <a  data-product="{{ plan.id }}" class="btn btn-outline-primary"style="border-radius:50px;font-size:15px;
+      font-weight:500;border-width:2px;margin-bottom:20px;"href="{% url 'view_program' plan.id %}">Go to plan <i class="bi bi-caret-right-fill"></i></a>
+     </div>
+   </div>
+  </div>
+  {% endfor %}
+      <br>
+  </div>
+
+  <br>
+  <p style="text-align:center;font-size:24px;font-family:'Barlow Semi Condensed',sans-serif;letter-spacing:5px;">PRODUCTS</p>
+  <hr>
+  <div class="row">
+  {% for item in items %}
+    <div class="col-lg-4 col-md-6 col-sm-11 col-11" style="margin-left:auto;margin-right:auto;margin-top:20px;display:flex;flex-wrap:wrap;padding:10px;">
+      <div class="innerdiv" style="width:100%;background:white;box-shadow:0px 0px 15px 0px rgba(0,0,0,0.3);padding:20px;">
+          <p style="font-size:15px;color:black;font-weight:700;text-align:center;">{{item.product_name}}</p>
+
+          <div class="col-lg-11 col-md-12 col-sm-12 col-12" style="margin-left:auto;margin-right:auto;">
+            <div style="padding:10px;border:1px solid #D7DBDD;" data-tilt>
+            <img src="{{item.product_imageURL}}" style="width:100%;">
+            </div>
+            <br>
+            <p style="font-size:13px;color:black;margin-top:0px;margin-bottom:5px;">₹ {{item.product_price}}</p>
+            <p style="font-size:12px;color:grey;white-space: pre-wrap;">{{item.product_caption}}</p>
+            <hr style="margin-top:0px;">
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+              <p style="font-size:12px;color:grey;white-space: pre-wrap;"><label style="font-weight:600;color:black;font-size:13px;" >Colors </label><br>{{item.product_colors_available}}</p>
+              </div>
+              <div class="text-right col-lg-6 col-md-6 col-sm-6 col-6">
+                <a data-product="{{ item.id }}" class="btn btn-outline-primary" href="{% url 'product_detail' item.id %}" style="font-weight:600;border-radius:80px;border-width:0px;font-size:14px;">View <i class="bi bi-chevron-double-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  {% endfor %}
+  <br>
+  </div>
+
+{% elif plans|length < 1 %}
+<div class="" style="background:#EAF2F8;">
+    <p style="font-size:18px;text-align:center;padding:10px;font-weight:500;">Search Results</p>
+</div>
+
+<p style="text-align:center;font-size:24px;font-family:'Barlow Semi Condensed',sans-serif;letter-spacing:5px;">POSTS</p>
+<hr>
+  <div class="row">
+      {% for tip in tips %}
+    <div class="col-lg-3 col-md-4 col-sm-6 col-10" style="margin-top:0;margin-left:auto;margin-right:auto;display:flex;flex-wrap:wrap;">
+      <div class="flipcard">
+         <div class="flipcard-wrap">
+           <div class="card card-front">
+              <img src="{{ tip.imageURL }}" class="card-img-top imghealthtip">
+              <div class="card-body" style="padding:8px  10px 0px 10px;">
+                <p style="font-size:11px;color:grey;margin-bottom:1px;text-align:right">{{tip.posted_on}}</p>
+                <p style="font-size:16px;font-weight:600;margin-bottom:3px;">{{tip.name}}</p>
+                <p style="font-size:13px;color:grey;">{{tip.caption}}</p>
+
+              </div>
+            </div>
+            <div class="card card-back">
+              <div class="card-body">
+                <p style="font-size:11px;color:lightblue;margin-bottom:3px;text-align:right">By: {{tip.posted_by}}</p>
+                <p style="white-space: pre-wrap;font-size:13px;">{{tip.introduction}}</p>
+                {% if tip.description%}
+                <a  data-product="{{ tip.id }}" class="btn btn-outline-primary"
+                style="border-radius:50px;font-size:14px;"href="{% url 'read_more' tip.id %}">Read More</a>
+                {% else %}
+                <p> </p>
+                {% endif %}
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+  </div>
+
+  <br>
+  <p style="text-align:center;font-size:24px;font-family:'Barlow Semi Condensed',sans-serif;letter-spacing:5px;">PRODUCTS</p>
+  <hr>
+  <div class="row">
+  {% for item in items %}
+    <div class="col-lg-4 col-md-6 col-sm-11 col-11" style="margin-left:auto;margin-right:auto;margin-top:20px;display:flex;flex-wrap:wrap;padding:10px;">
+      <div class="innerdiv" style="width:100%;background:white;box-shadow:0px 0px 15px 0px rgba(0,0,0,0.3);padding:20px;">
+          <p style="font-size:15px;color:black;font-weight:700;text-align:center;">{{item.product_name}}</p>
+
+          <div class="col-lg-11 col-md-12 col-sm-12 col-12" style="margin-left:auto;margin-right:auto;">
+            <div style="padding:10px;border:1px solid #D7DBDD;" data-tilt>
+            <img src="{{item.product_imageURL}}" style="width:100%;">
+            </div>
+            <br>
+            <p style="font-size:13px;color:black;margin-top:0px;margin-bottom:5px;">₹ {{item.product_price}}</p>
+            <p style="font-size:12px;color:grey;white-space: pre-wrap;">{{item.product_caption}}</p>
+            <hr style="margin-top:0px;">
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+              <p style="font-size:12px;color:grey;white-space: pre-wrap;"><label style="font-weight:600;color:black;font-size:13px;" >Colors </label><br>{{item.product_colors_available}}</p>
+              </div>
+              <div class="text-right col-lg-6 col-md-6 col-sm-6 col-6">
+                <a data-product="{{ item.id }}" class="btn btn-outline-primary" href="{% url 'product_detail' item.id %}" style="font-weight:600;border-radius:80px;border-width:0px;font-size:14px;">View <i class="bi bi-chevron-double-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  {% endfor %}
+  <br>
+  </div>
+
+
+{% elif items|length < 1 %}
+<div class="" style="background:#EAF2F8;">
+    <p style="font-size:18px;text-align:center;padding:10px;font-weight:500;">Search Results</p>
+</div>
+
+<p style="text-align:center;font-size:24px;font-family:'Barlow Semi Condensed',sans-serif;letter-spacing:5px;">POSTS</p>
+<hr>
+  <div class="row">
+      {% for tip in tips %}
+    <div class="col-lg-3 col-md-4 col-sm-6 col-10" style="margin-top:0;margin-left:auto;margin-right:auto;display:flex;flex-wrap:wrap;">
+      <div class="flipcard">
+         <div class="flipcard-wrap">
+           <div class="card card-front">
+              <img src="{{ tip.imageURL }}" class="card-img-top imghealthtip">
+              <div class="card-body" style="padding:8px  10px 0px 10px;">
+                <p style="font-size:11px;color:grey;margin-bottom:1px;text-align:right">{{tip.posted_on}}</p>
+                <p style="font-size:16px;font-weight:600;margin-bottom:3px;">{{tip.name}}</p>
+                <p style="font-size:13px;color:grey;">{{tip.caption}}</p>
+
+              </div>
+            </div>
+            <div class="card card-back">
+              <div class="card-body">
+                <p style="font-size:11px;color:lightblue;margin-bottom:3px;text-align:right">By: {{tip.posted_by}}</p>
+                <p style="white-space: pre-wrap;font-size:13px;">{{tip.introduction}}</p>
+                {% if tip.description%}
+                <a  data-product="{{ tip.id }}" class="btn btn-outline-primary"
+                style="border-radius:50px;font-size:14px;"href="{% url 'read_more' tip.id %}">Read More</a>
+                {% else %}
+                <p> </p>
+                {% endif %}
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+  </div>
+
+
+  <p style="text-align:center;font-size:24px;font-family:'Barlow Semi Condensed',sans-serif;letter-spacing:5px;">PROGRAM</p>
+  <hr>
+    <div class="row">
+    {% for plan in plans %}
+    <div class=" col-lg-3 col-md-4 col-sm-6 col-10"style="margin-left:auto;margin-right:auto;margin-top:20px;display:flex;flex-wrap:wrap;">
+      <div class="plancard text-center">
+        <img src="{{ plan.plan_imageURL }}" class="col-lg-8 col-md-8 col-sm-8 col-8" style="margin-bottom:10px;padding:0px;" >
+        <div  style="padding-right:10px;padding-left:10px;">
+          <p style="font-size:16px;font-weight:400;margin-bottom:0px;
+          font-family:Segoe UI Semibold;color:white">{{plan.plan_name}}</p>
+          <hr color="#34495E" style="margin-top:10px;margin-bottom:10px;" >
+          <p style="font-size:12px;color:#85929E;margin-top:0px;">{{plan.about_plan}}</p>
+          <a  data-product="{{ plan.id }}" class="btn btn-outline-primary"style="border-radius:50px;font-size:15px;
+        font-weight:500;border-width:2px;margin-bottom:20px;"href="{% url 'view_program' plan.id %}">Go to plan <i class="bi bi-caret-right-fill"></i></a>
+       </div>
+     </div>
+    </div>
+    {% endfor %}
+        <br>
+    </div>
+
+ {% else %}
+ <div class="" style="background:#EAF2F8;">
+     <p style="font-size:18px;text-align:center;padding:10px;font-weight:500;">Search Results</p>
+ </div>
+
+<p style="text-align:center;font-size:24px;font-family:'Barlow Semi Condensed',sans-serif;letter-spacing:5px;">POSTS</p>
+<hr>
+  <div class="row">
+      {% for tip in tips %}
+    <div class="col-lg-3 col-md-4 col-sm-6 col-10" style="margin-top:0;margin-left:auto;margin-right:auto;display:flex;flex-wrap:wrap;">
+      <div class="flipcard">
+         <div class="flipcard-wrap">
+           <div class="card card-front">
+              <img src="{{ tip.imageURL }}" class="card-img-top imghealthtip">
+              <div class="card-body" style="padding:8px  10px 0px 10px;">
+                <p style="font-size:11px;color:grey;margin-bottom:1px;text-align:right">{{tip.posted_on}}</p>
+                <p style="font-size:16px;font-weight:600;margin-bottom:3px;">{{tip.name}}</p>
+                <p style="font-size:13px;color:grey;">{{tip.caption}}</p>
+
+              </div>
+            </div>
+            <div class="card card-back">
+              <div class="card-body">
+                <p style="font-size:11px;color:lightblue;margin-bottom:3px;text-align:right">By: {{tip.posted_by}}</p>
+                <p style="white-space: pre-wrap;font-size:13px;">{{tip.introduction}}</p>
+                {% if tip.description%}
+                <a  data-product="{{ tip.id }}" class="btn btn-outline-primary"
+                style="border-radius:50px;font-size:14px;"href="{% url 'read_more' tip.id %}">Read More</a>
+                {% else %}
+                <p> </p>
+                {% endif %}
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+  </div>
+
+
+  <p style="text-align:center;font-size:24px;font-family:'Barlow Semi Condensed',sans-serif;letter-spacing:5px;">PROGRAM</p>
+  <hr>
+    <div class="row">
+    {% for plan in plans %}
+    <div class=" col-lg-3 col-md-4 col-sm-6 col-10"style="margin-left:auto;margin-right:auto;margin-top:20px;display:flex;flex-wrap:wrap;">
+      <div class="plancard text-center">
+        <img src="{{ plan.plan_imageURL }}" class="col-lg-8 col-md-8 col-sm-8 col-8" style="margin-bottom:10px;padding:0px;" >
+        <div  style="padding-right:10px;padding-left:10px;">
+          <p style="font-size:16px;font-weight:400;margin-bottom:0px;
+          font-family:Segoe UI Semibold;color:white">{{plan.plan_name}}</p>
+          <hr color="#34495E" style="margin-top:10px;margin-bottom:10px;" >
+          <p style="font-size:12px;color:#85929E;margin-top:0px;">{{plan.about_plan}}</p>
+          <a  data-product="{{ plan.id }}" class="btn btn-outline-primary"style="border-radius:50px;font-size:15px;
+        font-weight:500;border-width:2px;margin-bottom:20px;"href="{% url 'view_program' plan.id %}">Go to plan <i class="bi bi-caret-right-fill"></i></a>
+       </div>
+     </div>
+    </div>
+    {% endfor %}
+        <br>
+    </div>
+
+    <br>
+    <p style="text-align:center;font-size:24px;font-family:'Barlow Semi Condensed',sans-serif;letter-spacing:5px;">PRODUCTS</p>
+    <hr>
+    <div class="row">
+    {% for item in items %}
+      <div class="col-lg-4 col-md-6 col-sm-11 col-11" style="margin-left:auto;margin-right:auto;margin-top:20px;display:flex;flex-wrap:wrap;padding:10px;">
+        <div class="innerdiv" style="width:100%;background:white;box-shadow:0px 0px 15px 0px rgba(0,0,0,0.3);padding:20px;">
+            <p style="font-size:15px;color:black;font-weight:700;text-align:center;">{{item.product_name}}</p>
+
+            <div class="col-lg-11 col-md-12 col-sm-12 col-12" style="margin-left:auto;margin-right:auto;">
+              <div style="padding:10px;border:1px solid #D7DBDD;" data-tilt>
+              <img src="{{item.product_imageURL}}" style="width:100%;">
+              </div>
+              <br>
+              <p style="font-size:13px;color:black;margin-top:0px;margin-bottom:5px;">₹ {{item.product_price}}</p>
+              <p style="font-size:12px;color:grey;white-space: pre-wrap;">{{item.product_caption}}</p>
+              <hr style="margin-top:0px;">
+              <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+                <p style="font-size:12px;color:grey;white-space: pre-wrap;"><label style="font-weight:600;color:black;font-size:13px;" >Colors </label><br>{{item.product_colors_available}}</p>
+                </div>
+                <div class="text-right col-lg-6 col-md-6 col-sm-6 col-6">
+                  <a data-product="{{ item.id }}" class="btn btn-outline-primary" href="{% url 'product_detail' item.id %}" style="font-weight:600;border-radius:80px;border-width:0px;font-size:14px;">View <i class="bi bi-chevron-double-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    {% endfor %}
+    <br>
+    </div>
+
+
+  {% endif %}
+</div><br><br>
+{% endblock content %}
