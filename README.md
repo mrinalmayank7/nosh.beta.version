@@ -8,5 +8,5 @@ The website is fully dynamic and customisable via database with UNLIMITED ( Prod
 <br>
 The website is the live example of a client end website with inbuilt automated email , user services , forms , information portal and much more. More than 300 HRS has been utilised to develop the website from scratch to deployment. This is a completely project based website / non-commercial website / non-profitable website.
 <br>
-#### [CLICK HERE](https://noshbeta.herokuapp.com/) to visit the live website with complete end user experience .
-#### [CLICK HERE](https://youtu.be/lx69G-0wHTY) to see website promo.
+### [Visit Website](https://noshbeta.herokuapp.com/) 
+
