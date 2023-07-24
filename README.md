@@ -1,14 +1,23 @@
-## nosh.beta.version
+<div align="center">
+ <h2>Nosh</h2>
+  
+ <h5>Project Promo: <b><a href="https://youtu.be/oOnSYziFpYA">Click Here</a></b></h5>
+</div> 
+ <div align="justify">
+  <h4>Executive Summary</h4> 
+   
+ > <p>Nosh is a Full Stack Cloud Application developed with django & python in the backend development with SQLite database connectivity following HTML , CSS , Javascript , Bootstrap in the frontend development.The website is served as a complete web portal for a health & dietetics firm with dynamic customization, unlimited pages and stands as an Industry level prototype with automated mail, user auth., PBKDF2 encryption, program/product visuals, user services, call to action, quick search & multipurpose end user experience. It is deployed entirely on the cloud with the leading cloud platforms like Amazon Web Services for cloud storage & hosted with heroku server.</p>
+ </div>
 
-Introducing NOSH.Beta.V1 , a full stack cloud application completely developed by me for the summer 2021 project .
-<br>
-The website is deployed with heroku (paas) and the cloud storage is served by AWS S3 Bucket. Django & Python is utilised at the backend following HTML , CSS , Javascript , jQuery , Bootstrap in the front-end development .
-<br>
-The website is fully dynamic and customisable via database with UNLIMITED ( Products / Blogs / Programs ) pages can be added & fits to every screen sizing with a brand new UI .
-<br>
-The website is the live example of a client end website with inbuilt automated email , user services , forms , information portal and much more. More than 300 HRS has been utilised to develop the website from scratch to deployment. This is a completely project based website / non-commercial website / non-profitable website.
-<br>
-### [Visit Website](https://noshbeta.herokuapp.com/) 
 
-Watch the website promo [here](https://youtu.be/oOnSYziFpYA).
+<div align="center">
+ <h3>System Architecture</h3>
+ <hr>
+ <img src="https://github.com/mrinalmayank7/nosh.beta.version/blob/master/images/Architecture.png"> </img>
+  <br>
+   <kbd><img src="https://github.com/mrinalmayank7/nosh.beta.version/blob/master/images/features.png"> </img><kbd>
+</div> 
+
+ 
+
 
